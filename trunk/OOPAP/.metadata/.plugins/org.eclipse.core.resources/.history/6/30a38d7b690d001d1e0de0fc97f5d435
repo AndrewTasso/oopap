@@ -1,0 +1,19 @@
+package edu.monmouth.se.oopap;
+
+import javax.swing.JFrame;
+import javax.swing.JTextPane;
+
+public class OOPAPConsole extends JFrame
+{
+
+    JTextPane consolePane;
+    
+    public OOPAPConsole()
+    {
+      
+      console = new JTextPane();
+      this.add(consolePane);
+      
+    }
+  
+}

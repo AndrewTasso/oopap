@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package test.edu.monmouth.se.oopap.analyzer;
+
+import junit.framework.TestCase;
+
+/**
+ * @author Andy
+ *
+ */
+public class LineAnalyzerUnitTest extends TestCase
+{
+
+  public void testGetLineType_BlankLine()
+  {
+    
+    String testLine = "";
+    String testLine2 = " ";
+    String testLine3 = "\t";
+    
+    
+  }
+}

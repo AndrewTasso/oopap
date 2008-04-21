@@ -1,0 +1,49 @@
+package edu.monmouth.se.oopap;
+
+import javax.swing.JFrame;
+import javax.swing.JTextPane;
+import java.util.List;
+import javax.swing.JScrollPane;
+
+public class OOPAPConsole extends JFrame
+{
+
+    JScrollPane scrollPane;
+    JTextPane consolePane;
+    
+    public OOPAPConsole()
+    {
+      
+      
+      
+      this.scrollPane = new JScrollPane();
+      this.consolePane = new JTextPane();
+    
+      this.consolePane.add(this.scrollPane);
+      this.scrollPane.setVisible(true);
+      this.consolePane.setVisible(true);
+    
+      this.add(this.consolePane);
+      this.setSize(500, 700);
+      
+    }
+    
+    public void displayConsoleReport(List<String> theConsoleReport)
+    {
+      
+      //Build a string from the console report so the text of the console
+      //may be set
+      StringBuilder sb = new StringBuilder();
+      //iterate over the collection of strings for the
+      for(String currReportLine: theConsoleReport)
+      {
+        
+        sb.append(currReportLine + "\n");
+        
+      }
+      
+      consolePane.setText(sb.toString());
+      
+    }
+  
+}

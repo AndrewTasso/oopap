@@ -1,0 +1,22 @@
+package test.edu.monmouth.se.oopap;
+
+import test.edu.monmouth.se.oopap.analyzer.LineAnalyzerUnitTest;
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class OOPAPTestSuite
+{
+
+  public static Test suite()
+  {
+    TestSuite suite = new TestSuite("Test for test.edu.monmouth.se.oopap");
+    //$JUnit-BEGIN$
+
+    suite.addTestSuite(LineAnalyzerUnitTest.class);
+    suite.addTestSuite(SourceAnalyzerFactoryUnitTest.class);
+    
+    //$JUnit-END$
+    return suite;
+  }
+
+}

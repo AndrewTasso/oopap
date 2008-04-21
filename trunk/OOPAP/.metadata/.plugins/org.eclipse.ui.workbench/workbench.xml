@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="25" version="2.0">
+<workbenchAdvisor/>
+<window height="742" maximized="true" width="1024" x="0" y="22">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="98" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.swtdesigner.actionset" itemType="typeToolBarContribution" x="75" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="124" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="98" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="85" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="183" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1207335027834" focus="true" label="Workspace - Java">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.internal.presentations.r33.WorkbenchPresentationFactory_33">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FileUtilUnitTest.java" partName="FileUtilUnitTest.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/test/automated/edu/monmouth/se/oopap/io/FileUtilUnitTest.java" title="FileUtilUnitTest.java" tooltip="OOPAP/src/test/automated/edu/monmouth/se/oopap/io/FileUtilUnitTest.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/test/automated/edu/monmouth/se/oopap/io/FileUtilUnitTest.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="1406"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DepthOfInheritanceTreeSourceAnalyzerStringTest.java" partName="DepthOfInheritanceTreeSourceAnalyzerStringTest.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/DepthOfInheritanceTreeSourceAnalyzerStringTest.java" title="DepthOfInheritanceTreeSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/DepthOfInheritanceTreeSourceAnalyzerStringTest.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/DepthOfInheritanceTreeSourceAnalyzerStringTest.java"/>
+<editorState selectionHPixel="0" selectionLength="48" selectionOffset="8"/>
+</editor>
+<editor focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPGUI.java" partName="OOPAPGUI.java" path="C:/Documents and Settings/andrew.tasso/Desktop/OOPAPSVN/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java" title="OOPAPGUI.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="908"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPLogicalLOCSourceAnalyzerStringTest.java" partName="PSPLogicalLOCSourceAnalyzerStringTest.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzerStringTest.java" title="PSPLogicalLOCSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzerStringTest.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzerStringTest.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="264"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPLogicalLOCSourceAnalyzer.java" partName="PSPLogicalLOCSourceAnalyzer.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzer.java" title="PSPLogicalLOCSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzer.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="8767"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPController.java" partName="OOPAPController.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java" title="OOPAPController.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="3419"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPPhysicalLocSourceAnalyzerStringTest.java" partName="PSPPhysicalLocSourceAnalyzerStringTest.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLocSourceAnalyzerStringTest.java" title="PSPPhysicalLocSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLocSourceAnalyzerStringTest.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLocSourceAnalyzerStringTest.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPPhysicalLOCSourceAnalyzer.java" partName="PSPPhysicalLOCSourceAnalyzer.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLOCSourceAnalyzer.java" title="PSPPhysicalLOCSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLOCSourceAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLOCSourceAnalyzer.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="5881"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAP.java" partName="OOPAP.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/OOPAP.java" title="OOPAP.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAP.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAP.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConsoleUtil.java" partName="ConsoleUtil.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/io/ConsoleUtil.java" title="ConsoleUtil.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/io/ConsoleUtil.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/io/ConsoleUtil.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="452"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SourceAnalyzerStringTestDriver.java" partName="SourceAnalyzerStringTestDriver.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/SourceAnalyzerStringTestDriver.java" title="SourceAnalyzerStringTestDriver.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/SourceAnalyzerStringTestDriver.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/SourceAnalyzerStringTestDriver.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="561"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineCountSourceAnalyzer.java" partName="LineCountSourceAnalyzer.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LineCountSourceAnalyzer.java" title="LineCountSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LineCountSourceAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LineCountSourceAnalyzer.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="8863"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineAnalyzer.java" partName="LineAnalyzer.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/analyzer/LineAnalyzer.java" title="LineAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/analyzer/LineAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/analyzer/LineAnalyzer.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="7175"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LackOfCohesionInMethodsSourceAnalyzer.java" partName="LackOfCohesionInMethodsSourceAnalyzer.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LackOfCohesionInMethodsSourceAnalyzer.java" title="LackOfCohesionInMethodsSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LackOfCohesionInMethodsSourceAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LackOfCohesionInMethodsSourceAnalyzer.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="9508"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPConsole.java" partName="OOPAPConsole.java" path="/Users/Andy/Desktop/OOPAPSVN/OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java" title="OOPAPConsole.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="788"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.ClassFileEditor" name="Container.class" partName="Container.class" title="Container.class" tooltip="java.awt.Container" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" org.eclipse.jdt.ui.ClassFileIdentifier="=OOPAP/\/System\/Library\/Frameworks\/JavaVM.framework\/Versions\/1.5.0\/Classes\/classes.jar&lt;java.awt(Container.class"/>
+<editorState selectionHPixel="0" selectionLength="0" selectionOffset="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
+<viewState failuresOnly="false" layout="1" orientation="2" ratio="500" scroll="false"/>
+</view>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy">
+<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" isWindowWorkingSet="false" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState columnWidth0="472" columnWidth1="99" columnWidth2="174" columnWidth3="84" columnWidth4="0" horizontalPosition="0" verticalPosition="18">
+<columnOrder columnOrderIndex="0"/>
+<columnOrder columnOrderIndex="1"/>
+<columnOrder columnOrderIndex="2"/>
+<columnOrder columnOrderIndex="3"/>
+<columnOrder columnOrderIndex="4"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" isWindowWorkingSet="false" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
+</view>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
+<viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
+<org.eclipse.mylyn.tasklist.ui.views.tasklist.sortIndex>&#x0A;<sorter sortDirection="1" sortIndex="0"/>
+</org.eclipse.mylyn.tasklist.ui.views.tasklist.sortIndex>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+</views>
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.tasklist.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.WorkingSetActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="com.swtdesigner.actionset"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.SourceView"/>
+<show_view_action id="org.eclipse.jdt.ui.JavadocView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewEnumCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewAnnotationCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.bugzilla.bugWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.task"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@c9b8ea" orientation="512" selectedTabId="org.eclipse.mylyn.tasks.ui.views.tasks" style="0">
+<fastViews>
+<view id="org.eclipse.mylyn.tasks.ui.views.tasks" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@eb98f6" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="Hierarchy"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.r33.WorkbenchPresentationFactory_33">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.3525836" ratioLeft="348" ratioRight="639" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.67173254" ratioLeft="442" ratioRight="216" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.r33.WorkbenchPresentationFactory_33">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@c9b8ea" ratio="0.7493438" ratioLeft="571" ratioRight="191" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.r33.WorkbenchPresentationFactory_33"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@eb98f6" ratio="0.5" ratioLeft="267" ratioRight="267" relationship="4" relative="org.eclipse.ui.internal.ViewStack@c9b8ea">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.internal.presentations.r33.WorkbenchPresentationFactory_33"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=OOPAP/\/System\/Library\/Frameworks\/JavaVM.framework\/Versions\/1.5.0\/Classes\/classes.jar&lt;java.awt(Container.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java"/>
+</editors>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3445" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="366" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="153" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="366" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="859" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="1010" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="1226" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="4528" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3421" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="1226" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="4528" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3421" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="175" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="4528" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3421" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="175" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3421" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3445" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3247" y="35"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1239" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="175" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="772" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="322" y="0"/>
+</item>
+<item historyLabel="Container.class" index="3">
+<position/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="476" y="44"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="427" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="0">
+<position info="not_deleted" x="751" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1239" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1305" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1356" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1304" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1355" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1483" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1809" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1777" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1782" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1786" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="2196" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1385" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="2465" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3231" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="2465" y="0"/>
+</item>
+<item historyLabel="OOPAPController.java" index="1">
+<position info="not_deleted" x="3419" y="0"/>
+</item>
+<item historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="3231" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="4">
+<position info="not_deleted" x="758" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="4">
+<position info="not_deleted" x="645" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="4">
+<position info="not_deleted" x="800" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="4">
+<position info="not_deleted" x="1283" y="0"/>
+</item>
+<item historyLabel="OOPAPConsole.java" index="4">
+<position info="not_deleted" x="788" y="0"/>
+</item>
+<item active="true" historyLabel="OOPAPGUI.java" index="2">
+<position info="not_deleted" x="1306" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@c9b8ea"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@eb98f6"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Container.class" tooltip="java.awt.Container">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=OOPAP/\/System\/Library\/Frameworks\/JavaVM.framework\/Versions\/1.5.0\/Classes\/classes.jar&lt;java.awt(Container.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPConsole.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPConsole.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LackOfCohesionInMethodsSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LackOfCohesionInMethodsSourceAnalyzer.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LackOfCohesionInMethodsSourceAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/analyzer/LineAnalyzer.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/analyzer/LineAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineCountSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LineCountSourceAnalyzer.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/LineCountSourceAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SourceAnalyzerStringTestDriver.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/SourceAnalyzerStringTestDriver.java">
+<persistable path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/SourceAnalyzerStringTestDriver.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConsoleUtil.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/io/ConsoleUtil.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/io/ConsoleUtil.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAP.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAP.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/OOPAP.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPPhysicalLOCSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLOCSourceAnalyzer.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLOCSourceAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPPhysicalLocSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLocSourceAnalyzerStringTest.java">
+<persistable path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPPhysicalLocSourceAnalyzerStringTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPController.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPLogicalLOCSourceAnalyzer.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzer.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PSPLogicalLOCSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzerStringTest.java">
+<persistable path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/PSPLogicalLOCSourceAnalyzerStringTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="OOPAPGUI.java" tooltip="OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java">
+<persistable path="/OOPAP/src/edu/monmouth/se/oopap/OOPAPGUI.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DepthOfInheritanceTreeSourceAnalyzerStringTest.java" tooltip="OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/DepthOfInheritanceTreeSourceAnalyzerStringTest.java">
+<persistable path="/OOPAP/src/test/manual/edu/monmouth/se/oopap/sourceanalyzer/DepthOfInheritanceTreeSourceAnalyzerStringTest.java"/>
+</file>
+</mruList>
+</workbench>

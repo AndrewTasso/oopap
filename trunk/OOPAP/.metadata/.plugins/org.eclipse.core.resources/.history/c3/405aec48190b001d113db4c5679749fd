@@ -1,0 +1,34 @@
+package test.edu.monmouth.se.oopap.sourceanalyzer;
+
+import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzer;
+import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzerFactory;
+import edu.monmouth.se.oopap.sourceanalyzer.*;
+import edu.monmouth.se.oopap.enumerator.ReportType;
+import edu.monmouth.se.oopap.exception.UnhandledReportTypeException;
+import junit.framework.TestCase;
+
+public class SourceAnalyzerFactoryUnitTest extends TestCase
+{
+
+  public void testGetConcreteSourceAnalyzer()
+  {
+    SourceAnalyzer analyzer;
+
+    try
+    {
+
+      analyzer = SourceAnalyzerFactory
+          .getConcreteSourceAnalyzer(ReportType.LineCountByPCO);
+
+      assertTrue(analyzer instanceof LineCountSourceAnalyzer);
+
+    } catch (UnhandledReportTypeException e)
+    {
+
+      e.printStackTrace();
+      fail(e.getMessage());
+
+    }
+  }
+
+}
