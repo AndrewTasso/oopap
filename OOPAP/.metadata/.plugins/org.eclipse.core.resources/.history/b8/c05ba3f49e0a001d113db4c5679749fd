@@ -1,0 +1,30 @@
+package test.edu.monmouth.se.oopap.sourceanalyzer;
+
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
+
+import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzer;
+import edu.monmouth.se.oopap.sourceanalyzer.LineCountSourceAnalyzer;
+
+public class LineCountSourceAnalzyerStringTest
+{
+  
+  public static void runLineCountStringTest(String theSourcePath)
+  {
+
+    //Map to hold the contents of the source
+    Map<String, List<String>> sourceMap = new HashMap<String, List<String>>();
+    
+    //instance the analyzer to be tested
+    SourceAnalyzer testAnalyzer = new LineCountSourceAnalyzer();
+    
+    //get the source
+    
+    //run the analysis
+    
+    //display the results
+    
+  }
+
+}

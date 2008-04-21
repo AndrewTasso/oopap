@@ -1,0 +1,6 @@
+package test.edu.monmouth.se.oopap.sourceanalyzer;
+
+public class List<T>
+{
+
+}

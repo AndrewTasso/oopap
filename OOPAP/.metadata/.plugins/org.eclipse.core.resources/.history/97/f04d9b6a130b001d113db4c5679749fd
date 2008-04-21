@@ -1,0 +1,32 @@
+/**
+ * 
+ */
+package test.edu.monmouth.se.oopap.analyzer;
+
+
+import junit.framework.TestCase;
+import edu.monmouth.se.oopap.enumerator.LineType;
+import edu.monmouth.se.oopap.analyzer.LineAnalyzer;
+
+/**
+ * @author Andy
+ *
+ */
+public class LineAnalyzerUnitTest extends TestCase
+{
+
+  public void testGetLineType_BlankLine()
+  {
+    
+    //Test lines of code each a white space character
+    String testLine1 = "";
+    String testLine2 = " ";
+    String testLine3 = "\t";
+    
+    assertEquals(LineType.Blank, LineAnalyzer.getLineType(testLine1));
+    assertEquals(LineType.Blank, LineAnalyzer.getLineType(testLine2));
+    assertEquals(LineType.Blank, LineAnalyzer.getLineType(testLine3));
+    
+  }
+  
+}

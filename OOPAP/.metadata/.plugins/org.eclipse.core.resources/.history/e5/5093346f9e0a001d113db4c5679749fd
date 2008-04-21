@@ -1,0 +1,19 @@
+package test.edu.monmouth.se.oopap.sourceanalyzer;
+
+import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzer;
+import edu.monmouth.se.oopap.sourceanalyzer.LineCountSourceAnalyzer;
+
+public class LineCountSourceAnalzyerStringTest
+{
+  
+  public static void runLineCountStringTest()
+  {
+
+    //instance the analyzer to be tested
+    SourceAnalyzer testAnalyzer = new LineCountSourceAnalyzer();
+    
+    
+    
+  }
+
+}

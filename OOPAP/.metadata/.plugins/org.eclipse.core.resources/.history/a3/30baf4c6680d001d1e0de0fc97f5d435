@@ -1,0 +1,8 @@
+package edu.monmouth.se.oopap;
+
+import javax.swing.JFrame;
+
+public class OOPAPConsole extends JFrame
+{
+
+}

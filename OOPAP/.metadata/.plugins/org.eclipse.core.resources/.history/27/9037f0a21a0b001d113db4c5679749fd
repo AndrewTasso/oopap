@@ -1,0 +1,19 @@
+package test.edu.monmouth.se.oopap.analyzer;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+public class AllTests
+{
+
+  public static Test suite()
+  {
+    TestSuite suite = new TestSuite(
+        "Test for test.edu.monmouth.se.oopap.analyzer");
+    //$JUnit-BEGIN$
+    suite.addTestSuite(LineAnalyzerUnitTest.class);
+    //$JUnit-END$
+    return suite;
+  }
+
+}

@@ -1,0 +1,11 @@
+package test.edu.monmouth.se.sourceanalyzer;
+
+public class LineCountSourceAnalzyerTest
+{
+  
+  public static runLineCountStringTest()
+  {
+    
+  }
+
+}
