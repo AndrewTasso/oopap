@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileWriter;
 
 /**
  * Class responsible for interacting with the file system.
@@ -108,12 +109,61 @@ public class FileUtil
   }
 
   /**
+   * Method used to write any reports, in the form of a list of strings
+   * to the specified path. This method will automatically insert a
+   * newline character at the end of each string. There is no need to
+   * insert such character at the end of the reports being generated.
    * 
-   * @param theReportContents
+   * @param theFilePath the path of the file to be written
+   * @param theReportContents the contents of the report to be written
+   * @throws FileNotFoundException 
    */
-  public static void writeReport(List<String> theReportContents)
+  public static void writeReport(File theFilePath,
+		  						 List<String> theReportContents) 
+    throws IOException
   {
 
+	  FileWriter fout = new FileWriter(theFilePath);
+	  
+	  for(String currLine : theReportContents)
+	  {
+		  
+		  fout.write(currLine + "\n");
+		  
+	  }
+	  
+	  fout.close();
+	  
   }
-
+  
+  /**
+   * Method used to create a directory. The new directory will be created at
+   * the path provided with the name provided
+   * 
+   * @param theParentDirectory The parent director
+   * @param theNewDirectoryName The new directory name
+   * @return A File object representing the new Directory
+   */  
+  public static File mkDir(File theParentDirectory,
+		                   String theNewDirectoryName)
+  {
+	  //Create a new file representation of the new directory
+	  File newDir = 
+		  new File(theParentDirectory, theNewDirectoryName);
+	  
+	  //check to see if the directory already exists. If it does there 
+	  //is no need to create a new one and the mkdir call can be ignored.
+	  if(!newDir.exists())
+	  {
+		  
+		  //create the directory
+		  newDir.mkdir();
+		  
+	  }
+	  
+	  //return the newly created path
+	  return newDir;
+	  
+  }
+  
 }
