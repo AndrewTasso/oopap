@@ -51,7 +51,8 @@ public class SourceAnalyzerFactory
 
     case NumberOfChildren:
 
-      return new PSPLogicalLOCSourceAnalyzer();
+      return new NumberOfChildrenSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
