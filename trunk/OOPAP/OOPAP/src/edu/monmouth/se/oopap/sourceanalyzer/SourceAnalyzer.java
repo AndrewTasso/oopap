@@ -33,12 +33,11 @@ public abstract class SourceAnalyzer
 
   /**
    * Method responsible for generating a 2 dimensional array of strings ready to
-   * be written to a worksheet within an excel workbook. The contents of the 2
-   * dimensional array will directly reflect the contents of the workbook. Each
-   * nest array represents a line within the worksheet.
+   * be written to a Comma Separate Value file. The contents of the 2
+   * dimensional array will directly reflect the contents of the CSV file. 
    * 
    * @return the 2 dimensional array of strings ready to be written to the
-   *         workbook.
+   *         CSV file.
    */
   public abstract List<List<String>> generateWorksheetReport();
 
