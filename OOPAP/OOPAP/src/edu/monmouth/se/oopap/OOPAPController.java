@@ -10,7 +10,6 @@ import java.io.IOException;
 import edu.monmouth.se.oopap.enumerator.ReportType;
 import edu.monmouth.se.oopap.exception.UnhandledReportTypeException;
 import edu.monmouth.se.oopap.io.FileUtil;
-import edu.monmouth.se.oopap.io.ConsoleUtil;
 import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzer;
 import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzerFactory;
 
@@ -92,7 +91,7 @@ public class OOPAPController
     sourceFileList = FileUtil.getSourceFileList(theSourcePath,
         theSourceExtension);
     
-    //add the student and project name to the full console reprot
+    //add the student and project name to the full console report
     this.fullConsoleReport.add("Student Name: " + theStudentName);
     this.fullConsoleReport.add("Project Name: " + theProjectName);
     this.fullConsoleReport.add("");
@@ -121,13 +120,16 @@ public class OOPAPController
       // run the analysis on the map of source contents
       sourceAnalyzer.analyzeSource(sourceContentsMap);
 
-      List<String> reportContents = sourceAnalyzer.generateConsoleReport();
-
-      this.fullConsoleReport.addAll(reportContents);
+      List<String> consoleReportContents = 
+    	  sourceAnalyzer.generateConsoleReport();
       
-      
-      //ConsoleUtil.displayReport(reportContents);
+      List<List<String>> csvReportContents = 
+    	  sourceAnalyzer.generateWorksheetReport();
 
+      //add the current analyzers contents to the entire console report
+      this.fullConsoleReport.addAll(consoleReportContents);
+      this.fullConsoleReport.add("");
+      
     }
 
   }
@@ -136,7 +138,8 @@ public class OOPAPController
    * Method to return the full console report. The full console report
    * contains the entire list of SourceAnalyzer console reports, one
    * for each of the source analyzers executed.
-   * @return
+   * 
+   * @return The full console report ready to be written to the console
    */
   public List<String> getFullConsoleReport()
   {
