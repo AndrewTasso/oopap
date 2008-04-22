@@ -89,7 +89,7 @@ public class LineAnalyzer
 
     // check to see if the line is a an import statement. This is the string
     // "import." that occurs at the beginning of a line.
-    else if (aLine.matches("import.*") && !aLine.contains(".matches("))
+    else if (aLine.matches("import .*") && !aLine.contains(".matches("))
     {
 
       returnLineType = LineType.ImportStatement;
@@ -98,7 +98,7 @@ public class LineAnalyzer
 
     // check to see if the line is a package declaration. This is the string
     // "package." that occurs at the beginning of a line.
-    else if (aLine.matches("package.*") && !aLine.contains(".matches("))
+    else if (aLine.matches("package .*") && !aLine.contains(".matches("))
     {
 
       returnLineType = LineType.PackageDeclaration;
