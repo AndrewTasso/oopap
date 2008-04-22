@@ -53,8 +53,8 @@ public class OOPAPController
     reportList.add(ReportType.LackOfCohesionInMethods);
     // 3rd release reports
     reportList.add(ReportType.PSPClassOperation);
-    // reportList.add(ReportType.DepthOfInheritanceTree);
-    // reportList.add(ReportType.NumberOfChildren);
+    reportList.add(ReportType.DepthOfInheritanceTree);
+    reportList.add(ReportType.NumberOfChildren);
 
   }
 
