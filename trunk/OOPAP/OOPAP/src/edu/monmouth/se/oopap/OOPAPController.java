@@ -52,6 +52,7 @@ public class OOPAPController
     reportList.add(ReportType.PSPLogicalLOCByPCO);
     reportList.add(ReportType.LackOfCohesionInMethods);
     // 3rd release reports
+    reportList.add(ReportType.ClassOperationCountByProgram);
     // reportList.add(ReportType.DepthOfInheritanceTree);
     // reportList.add(ReportType.NumberOfChildren);
 
