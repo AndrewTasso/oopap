@@ -3,7 +3,6 @@ package edu.monmouth.se.oopap.sourceanalyzer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -254,8 +253,6 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
         //check if node has children
         if(childrenNode.size() > 0)
         {
-          //initialize array to hold DIT of each child
-          ArrayList<Integer> childrenDepth = new ArrayList<Integer>();
           //add 1 to depth of inheritance length to account for class's children
           depthLength = depthLength + 1;
           //initialize variable to hold the longest depth out of all the class's children
