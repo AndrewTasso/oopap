@@ -157,7 +157,75 @@ public class LineAnalyzer
     return returnLineType;
 
   }
-
+  
+  /**
+   * Method used to extract the name of a class from a line containing a
+   * class declaration. This method will return a blank line if an invalid
+   * method declaration in provided.
+   * 
+   * @param theSourceLine
+   *          the Line containing the class declaration
+   * @return The class name
+   * @author Jason Schramm
+   */
+  public static String getClassName(String theSourceLine)
+  {
+    //split line into tokens, split on whitespace
+    String[] tokens = theSourceLine.split(" ");
+    
+    //initialize class name string
+    String className = "";
+    
+    //iterate through tokens to find the class name
+    for(int tokenCount = 0; tokenCount < tokens.length;tokenCount++)
+    {
+      // Checks if token contains "class". If it does, then next
+      // token must be class name. Save it.
+      if(tokens[tokenCount].equalsIgnoreCase("class"))
+      {
+        tokenCount++;
+        className = tokens[tokenCount];
+        break;
+      }
+    }
+    
+    return className;
+  }
+  
+  /**
+   * Method used to extract the name of a superclass from a line containing a
+   * class declaration. This method will return a blank line if there is no
+   * superclass referenced in the class declaration provided.
+   * 
+   * @param theSourceLine
+   *          the Line containing the class declaration
+   * @return The superclass name
+   * @author Jason Schramm
+   */
+  public static String getSuperclassName(String theSourceLine)
+  {
+    //split line into tokens, split on whitespace
+    String[] tokens = theSourceLine.split(" ");
+    
+    //initialize superclass name string
+    String superclassName = "";
+    
+    //iterate through tokens to find the class name
+    for(int tokenCount = 0; tokenCount < tokens.length;tokenCount++)
+    {
+      // Checks if token contains "class". If it does, then next
+      // token must be class name. Save it.
+      if(tokens[tokenCount].equalsIgnoreCase("extends"))
+      {
+        tokenCount++;
+        superclassName = tokens[tokenCount];
+        break;
+      }
+    }
+    
+    return superclassName;
+  }
+  
   /**
    * Method used to extract the name of an operation from a line containing an
    * operation declaration. This method will return a blank line if an invalid
