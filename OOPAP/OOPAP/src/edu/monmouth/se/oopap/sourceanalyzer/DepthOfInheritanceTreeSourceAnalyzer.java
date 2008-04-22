@@ -15,7 +15,7 @@ import edu.monmouth.se.oopap.analyzer.LineAnalyzer;
  * This class is responsible for depth of inheritance of a class.
  * Depth is found recursively, with each class with children being 
  * counted as 1 level.
- * Depth for each class is then output.
+ * Depth from each class to its farthest child is then output.
  * 
  * @author Jason Schramm
  * @version %I% %G% 
@@ -116,17 +116,17 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
             currParent = LineAnalyzer.getSuperclassName(currLine);
             
             //store inheritance relationship in arraylist if it exists
-            if(currParent != "" && currChild != "")
-            {
+            //if(currParent != "" && currChild != "")
+            //{
               this.addRelationship(currParent,currChild);
-            }
+            //}
             //stores current class name in classMap
-            if(currChild != "")
-            {
+            //if(currChild != "")
+            //{
               //initializes depth of inheritance value to 0
               //will be updated later in the code
               classMap.put(currChild, 0);
-            }
+            //}
 
             break;
           }
@@ -239,10 +239,9 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
    */
   public int getDepth(String className)
   {
-    //initialize children size to 0
     //each class has a 0 depth to start
     int depthLength = 0;
-    int depthTemp = 0;
+    
     //iterate over all classes
     for (ClassStructureNode Node : classTree)
     {
@@ -252,23 +251,30 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
       {
         //get a list of the class's children
         ArrayList<String> childrenNode = Node.getChildren();
-        //check if node has children, and add 1 to the depth variable
+        //check if node has children
         if(childrenNode.size() > 0)
         {
+          //initialize array to hold DIT of each child
+          ArrayList<Integer> childrenDepth = new ArrayList<Integer>();
           //add 1 to depth of inheritance length to account for class's children
           depthLength = depthLength + 1;
-          //iterate through each child class, looking to see if it has any children
+          //initialize variable to hold the longest depth out of all the class's children
+          int longestDepth = 0;
+          //temp variable to hold each child's depth for comparison
+          int tempDepth = 0;
+          //iterate through each child class, comparing its depth
           for (String childName : childrenNode)
           {
-            //add the depth of inheritance each child has to depthTemp 
-            depthTemp = depthTemp + getDepth(childName);
+            //add the depth of inheritance a child has to tempDepth 
+            tempDepth = getDepth(childName);
+            //if the current child's depth is longer than the last stored,
+            //update longestDepth with current child's depth
+            if(tempDepth > longestDepth)
+              longestDepth = tempDepth;
           }
-          //if any of the children have a depth greater than 0 add 1
-          //to the depth of inheritance length of the current class
-          if(depthTemp > 0)
-          {
-            depthLength = depthLength + 1;
-          }
+          
+          //add longest child depth to current class's depthLength
+          depthLength = depthLength + longestDepth;
         }
         else
         {
@@ -277,7 +283,7 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
         }
       }
     }
-    
+
     return depthLength;
   }
 }
