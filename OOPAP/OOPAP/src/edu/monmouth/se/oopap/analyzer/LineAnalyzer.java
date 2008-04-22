@@ -110,7 +110,7 @@ public class LineAnalyzer
     // keyword.
     // Ignore any lines that contain the ".matches(" indicating it would be a
     // regex search
-    else if (aLine.matches(".*(public|private).*(class|enum).*")
+    else if (aLine.matches(".*(public|private).* (class|enum) .*")
         && !aLine.contains(".matches("))
     {
 
