@@ -53,7 +53,7 @@ public class SourceAnalyzerFactory
 
       return new NumberOfChildrenSourceAnalyzer();
       
-    case ClassOperationCountByProgram:
+    case PSPClassOperation:
       
       return new PSPClassOperationSourceAnalyzer();
       
