@@ -53,6 +53,10 @@ public class SourceAnalyzerFactory
 
       return new NumberOfChildrenSourceAnalyzer();
       
+    case ClassOperationCountByProgram:
+      
+      return new PSPClassOperationSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
