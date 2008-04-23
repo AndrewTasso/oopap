@@ -123,7 +123,7 @@ public class LineAnalyzer
     // If a '.' occurs in the string it is not a method declaration
     // Ignore any lines that contain the ".matches(" indicating it would be a
     // regex
-    else if (aLine.matches(".*(public|private|protected).*\\(.*")
+    else if (aLine.matches (".*(public|private|protected).*\\(.*")
         && !aLine.contains(".*\\..*") && !aLine.contains(".matches("))
     {
 
@@ -295,6 +295,14 @@ public class LineAnalyzer
 
     return variableName;
 
+  }
+  
+  public static boolean isMethodCall(String theSourceLine)
+  {
+    
+    
+    return false;
+    
   }
 
 }
