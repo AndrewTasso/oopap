@@ -1,8 +1,8 @@
 package edu.monmouth.se.oopap.sourceanalyzer;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -11,64 +11,48 @@ import edu.monmouth.se.oopap.analyzer.LineAnalyzer;
 import edu.monmouth.se.oopap.enumerator.LineType;
 
 /**
- * @author Himali Patel
+ * This class is responsible for analyzing the source code of a program and producing a logical line count. 
+ * A logical line count returns the number of "useful" lines of code of each method and class, as well as
+ * a total count. In particular, it does not count comments, blank lines, or logical lines of code that cover 
+ * multiple lines.
+ * @author Kevin Gajdzis (with some source code from LineCountSourceAnalyzer by Andrew Tasso
  * @version %I% %G%
  */
 public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
 {
-  /**
-   * Integer to hold the number of lines within the program.
-   */
-  private int programLines;
-
-  /**
-   * Map to store the class to operation association. The key is the class name
-   * the value is a map which contains the operation names as the key and the
-   * line counts as the value.
-   */
+  //stores logical LOC for a given program
+  private int programLines=0;
+  //stores class to operation association
   private Map<String, Map<String, Integer>> classOperationLinesMap;
-
-  /**
-   * Map to store the class to line count association. The key is the class name
-   * the value is the number of lines in that class.
-   */
+  //stores operation to line count association
   private Map<String, Integer> classLinesMap;
-
+  
   /**
-   * Default constructor for the line count analyzer.
+   * default constructor. Runs the resetAnalysis operation to initialize the object 
    */
   public PSPPhysicalLOCSourceAnalyzer()
   {
-    // use the reset analysis method to initialize the data members of the class
     this.resetAnalysis();
-
   }
-
+  
   /**
-   * Method used to reset the analysis of the analyzer. Resets the data members
-   * of the class.
+   * Method used to reset the analysis of the analyzer. Resets the
+   * data members of the class.
    */
   private void resetAnalysis()
   {
-
     this.programLines = 0;
     this.classOperationLinesMap = new HashMap<String, Map<String, Integer>>();
     this.classLinesMap = new HashMap<String, Integer>();
-
-  }
-
+  }  
+  
   /**
-   * Method responsible to analyzing the source code. After the report is run
-   * the report methods must be used to obtain the results of the report.
-   * 
-   * @param theSourceMap
-   *          The classname to class contents assocation map. The key is the
-   *          class name. The value is a List of Strings representing the
-   *          contents of the class.
+   * analyzes a given source for logical LOC. reads in line types and classifies them
+   * as valid logical LOC as required.
    */
   public void analyzeSource(Map<String, List<String>> theSourceMap)
   {
-    // reset the previous analysis
+    //reset the previous analysis
     this.resetAnalysis();
 
     // integer to hold the current physical LOC for the current class
@@ -76,6 +60,8 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
     // Set to hold the list of key values (source file names) for the current
     // map of source files.
     Set<String> sourceKeySet = theSourceMap.keySet();
+    // Stack to store braces
+    Stack<LineType> braceStack = new Stack<LineType>();
 
     // Iterate through the entire list of files in the program
     // The algorithm for counting is as follows. For every line in the file
@@ -102,148 +88,157 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
       LineType currLineType = LineType.Unknown;
       // Reset the ClassLOC
       currClassLines = 0;
+      
       // Map to hold the operation to line count association
       Map<String, Integer> operationCountMap = new HashMap<String, Integer>();
 
-      // integer to hold the blank lines in current files
-      int currBlankLines = 0;
-
-      // integer to hold the comment lines in current files
-      int currCommentLines = 0;
-
-      // integer to hold the open comment lines in current files
-      int currOpenComment = 0;
-
-      // integer to hold the close comment lines in current files
-      int currCloseComment = 0;
-
-      int numLine = 0;
-      // Stack to store openComment
-      Stack<LineType> commentStack = new Stack<LineType>();
-
-      // Boolean to indicate if there is comment or not.
-      boolean incomment = false;
-
       // iterate over the entire content of the file, analyzing each line
       // and incrementing the proper counter when appropriate.
+
       for (int i = 0; i < currFileContents.size(); i++)
       {
-
-        // get the current line
         currLine = currFileContents.get(i);
 
-        // determine the current line type
-        currLineType = LineAnalyzer.getLineType(currLine);
+          // determine the current line type
+          currLineType = LineAnalyzer.getLineType(currLine);
+        switch (currLineType)
+          {
 
+          case MethodDeclaration:
+
+            // get the name of the method being declared
+            currOperationName = LineAnalyzer.getOperationName(currLine);
+            // reset the LOC for the operation
+            currOperationLines = 1;
+            //blankLine = 0;
+            //openComment = 0;
+            ///closeComment = 0;
+            //comment =0;
+
+            break;
+
+          case OpeningBrace:
+
+            // only add a brace to the stack if we have encountered an operation
+            // declaration. If the current operation name is "" it means that
+            // it has not been set since no operations have been encountered yet
+            if (!currOperationName.equals(""))
+            {
+
+              braceStack.push(currLineType);
+
+            }
+
+            break;
+
+          case ClosingBrace:
+
+            // pop the opening brace from the stack only if there are items
+            // left on the stack. This is to ensure that no exception is thrown
+            // when the last brace in a class is encountered.
+            if (!braceStack.empty())
+            {
+
+              //pop the previous brace from the stack
+              braceStack.pop();
+
+              // check to see if the stack is now empty. If it is the end of
+              // the operation has been encountered. Add the operation and
+              // count to the map.
+              if (braceStack.empty())
+              {
+
+                operationCountMap.put(currOperationName, currOperationLines);
+
+              }
+              }
+
+            break;
+            
+          }
+        // get the current line
+        
         // Check the current line type. With this analysis we are concerned with
         // class declarations so the name may be retrieved, method declarations
         // for the purpose of resetting the LOC count by operation and getting
         // the name
+
+        
+        //determine whether the current line is a Physical LOC
         switch (currLineType)
         {
-
-        case MethodDeclaration:
-
-          // get the name of the method being declared
-          currOperationName = LineAnalyzer.getOperationName(currLine);
-
-          // reset the LOC for the operation
-          currOperationLines = 1;
-
-          break;
-
+        case ClassDeclaration:
         case Blank:
-          currBlankLines++;
-          break;
         case Comment:
-          currCommentLines++;
-
-          break;
         case OpenComment:
-          incomment = true;
-          break;
         case CloseComment:
-          incomment = false;
-          numLine++;
-          break;
-        }
-        
-        if (incomment == true)
-        {
-          
-          numLine++;
-          
-        }
-
-        this.programLines++;
-        currClassLines++;
-        currOperationLines++;
-
-        // currBlankLines++;
-
+            this.programLines++;
+            currClassLines++;
+            currOperationLines++;
+            break;
+            
+        } 
       }
-
+       
       // add the map of operation to line count association to the class to
       // line count association map
       classOperationLinesMap.put(currSourceFileName, operationCountMap);
       classLinesMap.put(currSourceFileName, currClassLines);
-
     }
-
   }
 
   /**
-   * Method responsible for generating a report ready to be output to the
-   * console.
-   * 
-   * @return a List of String containing the console output.
+   * generates a report that writes the data collected to the console
+   * @return
    */
   public List<String> generateConsoleReport()
   {
-
-    List<String> consoleReport = new ArrayList<String>();
-
-    // Set of strings to hold all of the keys (class names) in the map so that
-    // it may be iterated through.
+    
+    //List to hold the string contents
+    List<String> reportContents = new ArrayList<String>();
+    //Set of strings to hold all of the keys (class names) in the map so that
+    //it may be iterated through.
     Set<String> classKeySet = this.classOperationLinesMap.keySet();
-
-    consoleReport.add("PSP Physical LOC Report");
-
-    // Iterate over the entire class to operation association map.
+    
+    //Iterate over the entire class to operation association map.
     for (String currClassKey : classKeySet)
     {
 
-      // Map to hold the list of operations for the current class
-      Map<String, Integer> operationLinesMap = this.classOperationLinesMap
-          .get(currClassKey);
-      // Set of strings to hold all of the keys (operation names) in the map
-      // so that it may be iterated through.
+      //Map to hold the list of operations for the current class
+      Map<String, Integer> operationLinesMap = 
+          this.classOperationLinesMap.get(currClassKey);
+      //Set of strings to hold all of the keys (operation names) in the map 
+      //so that it may be iterated through.
       Set<String> operationKeySet = operationLinesMap.keySet();
 
-      // add the class name to the output
-      consoleReport.add("  " + currClassKey);
+      //add the title to the report
+      reportContents.add("Physical Line Count:\n");
+      
+      //add the class name to the output
+      reportContents.add(currClassKey);
 
-      // Iterate of the entire set of operations.
+      //Iterate of the entire set of operations.
       for (String currOperationName : operationKeySet)
       {
 
-        // Add the operation name followed by the number of lines in that
-        // operation. Get the line count from the operations lines map.
-        consoleReport.add("    " + currOperationName + ": "
+        //Add the operation name followed by the number of lines in that
+        //operation. Get the line count from the operations lines map.
+        reportContents.add("  " + currOperationName + ": "
             + operationLinesMap.get(currOperationName));
-      }
+        
 
-      // Add the class total to the output
-      consoleReport.add("  Class Total: " + classLinesMap.get(currClassKey)
-          + "\n");
+      }
+      
+      //Add the class total to the output
+      reportContents.add("Class Total: " + classLinesMap.get(currClassKey) +"\n");    
 
     }
+    
+    //Add the program total to the output
+    reportContents.add("Program Total: " + programLines);    
 
-    // Add the program total to the output
-    consoleReport.add("Program Total: " + programLines);
-
-    return consoleReport;
-
+    return reportContents;
+    
   }
 
   /**
@@ -255,8 +250,10 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
 
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
 
-    return worksheetReport;
+    worksheetReport.add(new ArrayList<String>());
 
+    return worksheetReport;
+    
   }
 
 }
