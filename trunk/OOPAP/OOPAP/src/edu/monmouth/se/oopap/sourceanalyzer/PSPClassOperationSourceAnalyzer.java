@@ -178,7 +178,6 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
     Set<String> classKeySet = this.classOperationLinesMap.keySet();
     //add the title to the report
     reportContents.add("Class and Operator Count:\n");
-    reportContents.add("Number of Classes for this File or Folder: " + classLinesMap.size() +"\n"); 
     //Iterate over the entire class to operation association map.
     for (String currClassKey : classKeySet)
     {
@@ -190,8 +189,6 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
       //so that it may be iterated through.
       Set<String> operationKeySet = operationLinesMap.keySet();
       
-      //add the class name to the output
-      reportContents.add(currClassKey);
       //reset operations for this class
       numOperations = 0;
       //Iterate of the entire set of operations.
@@ -200,9 +197,14 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
     	//increment the number of operations for this class
     	numOperations++;     
       }
-      //add this data to the report
-      reportContents.add("Number of Operations for this class: " + numOperations);   
+      
+      //add the class name to the output
+      reportContents.add("    " + currClassKey + ": " + numOperations);      
+
     } 
+    
+    reportContents.add("");
+    reportContents.add("Total Number of Classes for File/Folder: " + classLinesMap.size() +"\n"); 
 
     return reportContents;
     

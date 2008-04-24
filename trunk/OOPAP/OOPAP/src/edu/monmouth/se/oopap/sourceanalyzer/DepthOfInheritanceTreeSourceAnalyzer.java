@@ -169,7 +169,7 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
     for (String currClassKey : classKeySet)
     {
       //get depth of inheritance for each class, then output it with class name
-      consoleReport.add(currClassKey + ": " + this.classMap.get(currClassKey));
+      consoleReport.add("    " + currClassKey + ": " + this.classMap.get(currClassKey));
   }
 
     return consoleReport;
