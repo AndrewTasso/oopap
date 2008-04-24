@@ -3,8 +3,13 @@ package edu.monmouth.se.oopap;
 import javax.swing.JFrame;
 import javax.swing.JTextPane;
 import java.util.List;
+import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 
 public class OOPAPConsole extends JFrame
 {
@@ -12,6 +17,32 @@ public class OOPAPConsole extends JFrame
     JScrollPane scrollPane;
     JTextPane consolePane;
     JScrollBar scrollBar;
+    
+    static SimpleAttributeSet REPORT_HEADER = new SimpleAttributeSet();
+
+    static SimpleAttributeSet CLASS_HEADER = new SimpleAttributeSet();
+
+    static SimpleAttributeSet NORMAL = new SimpleAttributeSet();
+
+    // Best to reuse attribute sets as much as possible.
+    static {
+      
+      StyleConstants.setForeground(REPORT_HEADER, Color.black);
+      StyleConstants.setBold(REPORT_HEADER, true);     
+      StyleConstants.setUnderline(REPORT_HEADER, true);     
+      StyleConstants.setFontFamily(REPORT_HEADER, "Helvetica");
+      StyleConstants.setFontSize(REPORT_HEADER, 14);
+
+      StyleConstants.setForeground(CLASS_HEADER, Color.black);
+      StyleConstants.setBold(CLASS_HEADER, true);
+      StyleConstants.setFontFamily(CLASS_HEADER, "Helvetica");
+      StyleConstants.setFontSize(CLASS_HEADER, 13);
+
+      StyleConstants.setForeground(NORMAL, Color.black);
+      StyleConstants.setFontFamily(NORMAL, "Helvetica");
+      StyleConstants.setFontSize(NORMAL, 12);
+      
+    }    
     
     public OOPAPConsole()
     {
@@ -35,20 +66,49 @@ public class OOPAPConsole extends JFrame
     public void displayConsoleReport(List<String> theConsoleReport)
     {
       
-      //Build a string from the console report so the text of the console
-      //may be set
-      StringBuilder sb = new StringBuilder();
       //iterate over the collection of strings for the
       for(String currReportLine: theConsoleReport)
       {
-        
-        sb.append(currReportLine + "\n");
+
+        if(currReportLine.startsWith("        "))
+        {
+          
+          insertText(currReportLine + "\n", this.NORMAL);          
+          
+        }
+        else if(currReportLine.startsWith("    "))
+        {
+          
+          insertText(currReportLine + "\n", this.CLASS_HEADER);                    
+          
+        }
+        else
+        {
+          
+          insertText(currReportLine + "\n", this.REPORT_HEADER);                    
+          
+        }
         
       }
       
-      consolePane.setText(sb.toString());
       pack();
       
     }
+    
+    private void insertText(String text, AttributeSet set) {
+      
+      try 
+      {
+      
+        consolePane.getDocument().insertString(
+            consolePane.getDocument().getLength(), text, set);
+        
+      } 
+      catch (BadLocationException e) 
+      {
+      
+        e.printStackTrace();
+      }
+    }    
   
 }
