@@ -129,7 +129,7 @@ public class OOPAPController
 
       //add the current analyzers contents to the entire console report
       this.fullConsoleReport.addAll(consoleReportContents);
-      this.fullConsoleReport.add("");
+      this.fullConsoleReport.add("\n");
       
     }
 
