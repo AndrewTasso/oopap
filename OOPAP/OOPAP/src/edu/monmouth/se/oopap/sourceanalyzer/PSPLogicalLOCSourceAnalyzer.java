@@ -228,7 +228,7 @@ public class PSPLogicalLOCSourceAnalyzer extends SourceAnalyzer
     Set<String> classKeySet = this.classOperationLinesMap.keySet();
 
     // add the title to the report
-    reportContents.add("Logical Line Count:\n");
+    reportContents.add("Logical LOC Count:\n");
     
     // Iterate over the entire class to operation association map.
     for (String currClassKey : classKeySet)
@@ -242,7 +242,7 @@ public class PSPLogicalLOCSourceAnalyzer extends SourceAnalyzer
       Set<String> operationKeySet = operationLinesMap.keySet();
 
       // add the class name to the output
-      reportContents.add("  " + currClassKey);
+      reportContents.add("    " + currClassKey);
 
       // Iterate of the entire set of operations.
       for (String currOperationName : operationKeySet)
@@ -250,13 +250,13 @@ public class PSPLogicalLOCSourceAnalyzer extends SourceAnalyzer
 
         // Add the operation name followed by the number of lines in that
         // operation. Get the line count from the operations lines map.
-        reportContents.add("    " + currOperationName + ": "
+        reportContents.add("        " + currOperationName + ": "
             + operationLinesMap.get(currOperationName));
 
       }
 
       // Add the class total to the output
-      reportContents.add("  Class Total: " + classLinesMap.get(currClassKey)
+      reportContents.add("    Class Total: " + classLinesMap.get(currClassKey)
           + "\n");
 
     }

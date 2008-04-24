@@ -245,13 +245,16 @@ public class LackOfCohesionInMethodsSourceAnalyzer extends SourceAnalyzer
     
     List<String> consoleReport = new ArrayList<String>();
 
-    consoleReport.add("Lack of cohesion in methods Report");
+    consoleReport.add("Lack of Cohesion in Methods:");
     
     Set<String> classNames  = classLCOMValMap.keySet();
+    
+    consoleReport.add("");
+    
     for (String currSourceFileName : classNames)
     {
       Integer lcomVal  =  (Integer) classLCOMValMap.get(currSourceFileName); 
-      consoleReport.add ("LCOM value for Class [" + currSourceFileName + "] is [" + lcomVal.toString() + "]");
+      consoleReport.add ("    " + currSourceFileName + ": " + lcomVal.toString());
     }
     
     return consoleReport;
