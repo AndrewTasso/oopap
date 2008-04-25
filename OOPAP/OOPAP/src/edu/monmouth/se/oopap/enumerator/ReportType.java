@@ -10,6 +10,6 @@ package edu.monmouth.se.oopap.enumerator;
 public enum ReportType
 {
 
-  LineCountByPCO, PSPPhysicalLOCByPCO, PSPLogicalLOCByPCO, CommentLines, CommentedLines, SumOfCommentAndCommented, DecisionAndLoopCountByPCO, PSPClassOperation, PublicVarCountByPC, PrivateVarCountByPC, GlobalVarCountByPC, DepthOfInheritanceTree, NumberOfChildren, LackOfCohesionInMethods, ResponseForAClass, TotalOperators, TotalLibraryCalls, Top5_20PercentOfCalculations, MeanMedStdDeviationOfCalcCount;
+  LineCountByPCO, PSPPhysicalLOCByPCO, PSPLogicalLOCByPCO, CommentLines, CommentedLines, SumOfCommentAndCommented, DecisionAndLoopCountByPCO, PSPClassOperation, PublicVarCountByPC, PrivateVarCountByPC, GlobalVarCountByPC, DepthOfInheritanceTree, NumberOfChildren, LackOfCohesionInMethods, ResponseForAClass, TotalOperators, TotalLibraryCalls, Top5_20PercentOfCalculations, MeanMedStdDeviationOfCalcCount, MethodVarCountByPC;
 
 }
