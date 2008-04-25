@@ -158,7 +158,7 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
   {
     List<String> consoleReport = new ArrayList<String>();
     
-    consoleReport.add("Depth Of Inheritance Report");
+    consoleReport.add("Depth Of Inheritance Tree:");
     consoleReport.add("");
     
     //Set of strings to hold all of the keys (class names) in the analyzer so that
