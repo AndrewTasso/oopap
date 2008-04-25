@@ -55,6 +55,9 @@ public class OOPAPController
     reportList.add(ReportType.PSPClassOperation);
     reportList.add(ReportType.DepthOfInheritanceTree);
     reportList.add(ReportType.NumberOfChildren);
+    reportList.add (ReportType.PrivateVarCountByPC);
+    reportList.add (ReportType.PublicVarCountByPC);
+    reportList.add (ReportType.MethodVarCountByPC);    
 
   }
 
