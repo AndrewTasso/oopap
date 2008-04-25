@@ -297,12 +297,39 @@ public class LineAnalyzer
 
   }
   
-  public static boolean isMethodCall(String theSourceLine)
+  /**
+   * Method to determine if a line of code is a variable declaration or not
+   * 
+   * @param theSourceLine The line to be analyzed
+   * @return A boolean reflecting whether or not the line of code is a variable
+   * declaration or not.
+   */
+  public static boolean isVariableDeclaration (String theSourceLine)
   {
     
-    
+    if ( (theSourceLine.matches(".*\\p{Alnum}+\\ +\\p{Alnum}+\\;.*") || theSourceLine.matches(".*\\p{Alnum}+\\ +\\p{Alnum}+\\ += .*\\;.*")) && 
+        (!theSourceLine.contains(".matches(") && !theSourceLine.contains(".for\\s*(.*\\+\\+") && !isReturnStatement(theSourceLine)) ) 
+    {
+      
+      return true;
+    }
+       
     return false;
+  }
+  
+  
+  public static boolean isReturnStatement(String theSourceLine)
+  {
     
+    if ( theSourceLine.matches("\\s*return\\s+.*;.*") && 
+        (!theSourceLine.contains(".matches(") ) ) 
+    {
+      
+      return true;
+      
+    }   
+   
+    return false;
   }
 
 }
