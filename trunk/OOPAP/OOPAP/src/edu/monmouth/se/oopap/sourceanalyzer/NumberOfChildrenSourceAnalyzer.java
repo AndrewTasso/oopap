@@ -158,7 +158,7 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
   {
     List<String> consoleReport = new ArrayList<String>();
     
-    consoleReport.add("Number of Children by Class");
+    consoleReport.add("Number of Children by Class:");
     consoleReport.add("");
     
     //Set of strings to hold all of the keys (class names) in the analyzer so that
@@ -169,7 +169,7 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
     for (String currClassKey : classKeySet)
     {
       //get number of children for each class, then output it with class name
-      consoleReport.add(currClassKey + ": " + this.classMap.get(currClassKey));
+      consoleReport.add("    " + currClassKey + ": " + this.classMap.get(currClassKey));
   }
 
     return consoleReport;

@@ -57,6 +57,18 @@ public class SourceAnalyzerFactory
       
       return new PSPClassOperationSourceAnalyzer();
       
+    case MethodVarCountByPC:
+
+      return new MethodVarCountSourceAnalyzer();
+
+    case PrivateVarCountByPC:
+
+      return new PrivateVarCountSourceAnalyzer();
+
+    case PublicVarCountByPC:
+
+      return new PublicVarCountSourceAnalyzer();      
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "

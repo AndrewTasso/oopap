@@ -204,7 +204,7 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
     } 
     
     reportContents.add("");
-    reportContents.add("Total Number of Classes for File/Folder: " + classLinesMap.size() +"\n"); 
+    reportContents.add("Total # of Classes for File/Folder: " + classLinesMap.size()); 
 
     return reportContents;
     
