@@ -47,7 +47,6 @@ public class OOPAPGUI extends JFrame
     this.fileChooser = new JFileChooser();
     this.fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
     this.workingPath = System.getProperty("user.dir");
-    this.console = new OOPAPConsole();
     this.studentNameTextField = new JTextField();
     this.projectNameTextField = new JTextField();
     
@@ -105,12 +104,16 @@ public class OOPAPGUI extends JFrame
         try
         {
 
+          
           workingPath = textField.getText();
           controller.runAnalysis(workingPath, sourceExtension,
                                  studentNameTextField.getText(),
                                  projectNameTextField.getText());
           
           List<String> fullConsoleReport = controller.getFullConsoleReport();
+          
+          console = new OOPAPConsole();
+
           console.displayConsoleReport(fullConsoleReport);
           console.setVisible(true);
           

@@ -10,6 +10,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.Document;
 
 public class OOPAPConsole extends JFrame
 {
@@ -46,7 +47,7 @@ public class OOPAPConsole extends JFrame
     
     public OOPAPConsole()
     {
-      
+            
       this.scrollPane = new JScrollPane();
       this.consolePane = new JTextPane();
     
@@ -65,7 +66,9 @@ public class OOPAPConsole extends JFrame
     
     public void displayConsoleReport(List<String> theConsoleReport)
     {
-      
+
+      this.clearConsole();
+
       //iterate over the collection of strings for the
       for(String currReportLine: theConsoleReport)
       {
@@ -73,19 +76,19 @@ public class OOPAPConsole extends JFrame
         if(currReportLine.startsWith("        "))
         {
           
-          insertText(currReportLine + "\n", this.NORMAL);          
+          this.insertText(currReportLine + "\n", this.NORMAL);          
           
         }
         else if(currReportLine.startsWith("    "))
         {
           
-          insertText(currReportLine + "\n", this.CLASS_HEADER);                    
+          this.insertText(currReportLine + "\n", this.CLASS_HEADER);                    
           
         }
         else
         {
           
-          insertText(currReportLine + "\n", this.REPORT_HEADER);                    
+          this.insertText(currReportLine + "\n", this.REPORT_HEADER);                    
           
         }
         
@@ -110,5 +113,25 @@ public class OOPAPConsole extends JFrame
         e.printStackTrace();
       }
     }    
+    
+    private void clearConsole()
+    {
+
+      
+      try
+      {
+               
+        Document document = this.consolePane.getDocument();
+        document.remove(0, document.getLength());
+        
+        pack();
+        
+      } catch (BadLocationException e)
+      {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+            
+    }
   
 }
