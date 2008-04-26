@@ -10,6 +10,7 @@ import java.io.IOException;
 import edu.monmouth.se.oopap.enumerator.ReportType;
 import edu.monmouth.se.oopap.exception.UnhandledReportTypeException;
 import edu.monmouth.se.oopap.io.FileUtil;
+import edu.monmouth.se.oopap.io.CSVUtil;
 import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzer;
 import edu.monmouth.se.oopap.sourceanalyzer.SourceAnalyzerFactory;
 
@@ -90,10 +91,17 @@ public class OOPAPController
     Map<String, List<String>> sourceContentsMap = new HashMap<String, List<String>>();
     // SourceAnalyer to be used to analyze the source
     SourceAnalyzer sourceAnalyzer;
+    //File to point to the directory the csv files are going to be output to
+    File outputPath = new File(System.getProperty("user.dir"));
 
     // Get the list of files from the path provided by the application
     sourceFileList = FileUtil.getSourceFileList(theSourcePath,
         theSourceExtension);
+    
+    //create the directory that is going to contain the csv reports. This will
+    //be in the format of .../<Project Name>/<Student Name>
+    outputPath = FileUtil.mkDir(outputPath, theProjectName);
+    outputPath = FileUtil.mkDir(outputPath, theStudentName);
     
     //add the student and project name to the full console report
     this.fullConsoleReport.add("Student Name: " + theStudentName);
@@ -117,6 +125,8 @@ public class OOPAPController
     for (ReportType currReport : reportList)
     {
 
+      File outputFile = new File(outputPath, theStudentName + "_" + theProjectName + "_" + currReport + ".csv");
+      
       // get the concrete implementation of the
       sourceAnalyzer = SourceAnalyzerFactory
           .getConcreteSourceAnalyzer(currReport);
@@ -127,12 +137,15 @@ public class OOPAPController
       List<String> consoleReportContents = 
     	  sourceAnalyzer.generateConsoleReport();
       
-      List<List<String>> csvReportContents = 
-    	  sourceAnalyzer.generateWorksheetReport();
+      List<String> csvReportContents = CSVUtil.generateCSVReport(
+          sourceAnalyzer.generateWorksheetReport());
 
       //add the current analyzers contents to the entire console report
       this.fullConsoleReport.addAll(consoleReportContents);
       this.fullConsoleReport.add("\n");
+      
+      //write the csv report to disk
+      FileUtil.writeReport(outputFile, csvReportContents);
       
     }
 
