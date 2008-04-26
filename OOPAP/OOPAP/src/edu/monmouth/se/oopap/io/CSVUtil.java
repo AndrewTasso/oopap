@@ -31,6 +31,7 @@ public class CSVUtil {
 		for(List<String> currLineContents : theReportContents)
 		{
 			
+		  
 			String currLine = "";
 			
 			//iterate over the entire list of tokens to be inserted into the
@@ -42,7 +43,7 @@ public class CSVUtil {
 				currLine += currLineContents.get(i);
 				//insert a comma after the token, with the exception
 				//of the final token.
-				if(i > currLineContents.size() - 1) 
+				if(i < currLineContents.size() - 1) 
 				{
 				
 					currLine += ",";
@@ -50,6 +51,8 @@ public class CSVUtil {
 				}
 				
 			}
+						
+			csvReportContents.add(currLine);
 			
 		}
 		
