@@ -21,9 +21,9 @@ import edu.monmouth.se.oopap.enumerator.LineType;
 public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
 {
   //stores logical LOC for a given program
-  private int programLines=0;
+  private int numProgramPhysicalLOC=0;
   //stores class to operation association
-  private Map<String, Map<String, Integer>> classOperationLinesMap;
+  private Map<String, Map<String, Integer>> classOperationPhysicalLOCMap;
   //stores operation to line count association
   private Map<String, Integer> classLinesMap;
   
@@ -41,8 +41,8 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
    */
   private void resetAnalysis()
   {
-    this.programLines = 0;
-    this.classOperationLinesMap = new HashMap<String, Map<String, Integer>>();
+    this.numProgramPhysicalLOC = 0;
+    this.classOperationPhysicalLOCMap = new HashMap<String, Map<String, Integer>>();
     this.classLinesMap = new HashMap<String, Integer>();
   }  
   
@@ -172,7 +172,7 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
         case Comment:
         case OpenComment:
         case CloseComment:
-            this.programLines++;
+            this.numProgramPhysicalLOC++;
             currClassLines++;
             currOperationLines++;
             break;
@@ -182,7 +182,7 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
        
       // add the map of operation to line count association to the class to
       // line count association map
-      classOperationLinesMap.put(currSourceFileName, operationCountMap);
+      classOperationPhysicalLOCMap.put(currSourceFileName, operationCountMap);
       classLinesMap.put(currSourceFileName, currClassLines);
     }
   }
@@ -198,7 +198,7 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
     List<String> reportContents = new ArrayList<String>();
     //Set of strings to hold all of the keys (class names) in the map so that
     //it may be iterated through.
-    Set<String> classKeySet = this.classOperationLinesMap.keySet();
+    Set<String> classKeySet = this.classOperationPhysicalLOCMap.keySet();
     
     //add the title to the report
     reportContents.add("Physical LOC Count:\n");
@@ -209,7 +209,7 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
 
       //Map to hold the list of operations for the current class
       Map<String, Integer> operationLinesMap = 
-          this.classOperationLinesMap.get(currClassKey);
+          this.classOperationPhysicalLOCMap.get(currClassKey);
       //Set of strings to hold all of the keys (operation names) in the map 
       //so that it may be iterated through.
       Set<String> operationKeySet = operationLinesMap.keySet();
@@ -235,25 +235,113 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
     }
     
     //Add the program total to the output
-    reportContents.add("Program Total: " + programLines);    
+    reportContents.add("Program Total: " + numProgramPhysicalLOC);    
 
     return reportContents;
     
   }
 
   /**
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
    * 
-   * @return
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the name of the
+   * operations within the class. The third column will contain the line counts
+   * for each class, operation and a final line count for the current program.
+   * 
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
 
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classOperationPhysicalLOCMap.keySet();
+    
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+    
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Operation Name");
+    currRow.add("Logical LOC");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+    
+    // reset the row
+    currRow = new ArrayList<String>();
+    
+    // Iterate over the entire class to operation association map.
+    for (String currClassKey : classKeySet)
+    {
 
+      // Map to hold the list of operations and their LOC for the current class
+      Map<String, Integer> operationLinesMap = this.classOperationPhysicalLOCMap
+          .get(currClassKey);
+      // Set of strings to hold all of the keys (operation names) in the map
+      // so that it may be iterated through.
+      Set<String> operationKeySet = operationLinesMap.keySet();
+
+      // Iterate over the entire set of operations.
+      for (String currOperationName : operationKeySet)
+      {
+
+        // reset the row
+        currRow = new ArrayList<String>();
+
+        // add the elements to the current row
+        currRow.add(currClassKey);
+        currRow.add(currOperationName);
+        currRow.add(operationLinesMap.get(currOperationName).toString());
+
+        // add the row to the work sheet
+        worksheetReport.add(currRow);
+
+      }
+  
+      // reset the current row
+      currRow = new ArrayList<String>();      
+
+    }
+    
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
 
-    return worksheetReport;
+    // Iterate over the entire set of operations.
+    //Add the class LOC total for each class
+    for (String currClassKey : classKeySet)
+    {
+
+      // add the class name, a empty cell and the class count to the output
+      currRow.add(currClassKey);
+      currRow.add("");
+      currRow.add(this.classLinesMap.get(currClassKey).toString());
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+
+      // reset the current row
+      currRow = new ArrayList<String>();
+
+    }    
     
+    // add a blank row
+    worksheetReport.add(new ArrayList<String>());
+
+    // add the program total to the work sheet
+    currRow.add("Program Total");
+    currRow.add("");
+    currRow.add(this.numProgramPhysicalLOC + "");
+    worksheetReport.add(currRow);
+
+    return worksheetReport;
+
   }
 
 }

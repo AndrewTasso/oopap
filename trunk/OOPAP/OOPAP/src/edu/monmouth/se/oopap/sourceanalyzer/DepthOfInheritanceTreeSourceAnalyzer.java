@@ -39,6 +39,8 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
   public DepthOfInheritanceTreeSourceAnalyzer()
   {
 
+    this.resetAnalysis();
+    
   }
 
 
@@ -170,26 +172,68 @@ public class DepthOfInheritanceTreeSourceAnalyzer extends SourceAnalyzer
     {
       //get depth of inheritance for each class, then output it with class name
       consoleReport.add("    " + currClassKey + ": " + this.classMap.get(currClassKey));
-  }
+    }
 
     return consoleReport;
 
   }
 
   /**
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
    * 
-   * @return
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the depth of
+   * inheritance for each class.  
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
-
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classMap.keySet();
 
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Depth of Inheritance Tree");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
+    
+
+
+      
+    //Iterate over the all class names selected for analysis
+    for (String currClassKey : classKeySet)
+    {
+     
+      // reset the row
+      currRow = new ArrayList<String>();          
+      
+      //add the class name and the LCOM value to the output
+      currRow.add(currClassKey);
+      currRow.add(this.classMap.get(currClassKey) + "");
+      
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+        
+    }      
 
     return worksheetReport;
 
   }
+
 
   /**
    * Method to add a parent class and its child to the class tree, stored 

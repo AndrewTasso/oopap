@@ -218,24 +218,74 @@ public class PrivateVarCountSourceAnalyzer extends SourceAnalyzer
     
   }
 
-
-
   /**
-   * @param currSourceFile
-   * @param fieldsToMethodsMap
-   * @return
-
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
+   * 
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the number
+   * of private variables within the class.  
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
-
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classOperationLinesMap.keySet();
 
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Number of Public Variables");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+
+    // add a blank row
+    worksheetReport.add(new ArrayList<String>());
+    
+
+    
+    Integer totalVars = 0;
+    
+    for (String currClassKey : classKeySet)
+    {
+    
+      // reset the row
+      currRow = new ArrayList<String>();        
+      
+      Integer privateVars = (Integer) classLinesMap.get(currClassKey);
+      
+      currRow.add(currClassKey);
+      currRow.add(privateVars + "");
+      
+      totalVars += privateVars;
+      
+      worksheetReport.add(currRow);
+        
+    }
+    
+    // reset the row
+    currRow = new ArrayList<String>();         
+    
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
 
+    // add the program total to the work sheet
+    currRow.add("Program Total");
+    currRow.add(totalVars + "");
+    worksheetReport.add(currRow);    
+
     return worksheetReport;
-    
-  }  
+
+  }   
 
   
   

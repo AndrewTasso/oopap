@@ -264,8 +264,8 @@ public class LineCountSourceAnalyzer extends SourceAnalyzer
 
   /**
    * Method responsible for generating a 2 dimensional array of string ready to
-   * be written to a work sheet within an excel workbook. The contents of the 2
-   * dimensional array will directly reflect the contents of the workbook. Each
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
    * nested array represents a line within the work sheet.
    * 
    * The first column in the output represents the name of the classes being

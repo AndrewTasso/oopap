@@ -39,6 +39,8 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
   public NumberOfChildrenSourceAnalyzer()
   {
 
+    this.resetAnalysis();
+    
   }
 
 
@@ -158,7 +160,7 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
   {
     List<String> consoleReport = new ArrayList<String>();
     
-    consoleReport.add("Number of Children by Class:");
+    consoleReport.add("Number of Children§:");
     consoleReport.add("");
     
     //Set of strings to hold all of the keys (class names) in the analyzer so that
@@ -177,15 +179,56 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
   }
 
   /**
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
    * 
-   * @return
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the number of
+   * children for each class.  
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
-
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classMap.keySet();
 
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Number of Children");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
+    
+
+
+      
+    //Iterate over the all class names selected for analysis
+    for (String currClassKey : classKeySet)
+    {
+     
+      // reset the row
+      currRow = new ArrayList<String>();          
+      
+      //add the class name and the LCOM value to the output
+      currRow.add(currClassKey);
+      currRow.add(this.classMap.get(currClassKey) + "");
+      
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+        
+    }      
 
     return worksheetReport;
 
