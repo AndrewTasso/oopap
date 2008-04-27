@@ -246,21 +246,107 @@ public class MethodVarCountSourceAnalyzer extends SourceAnalyzer
 
 
   /**
-   * @param currSourceFile
-   * @param fieldsToMethodsMap
-   * @return
-
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
+   * 
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the name of the
+   * operations within the class. The third column will contain the number of
+   * variables within each operation and a final line count for the 
+   * current program.
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
-
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classOperationLinesMap.keySet();
+    
+    Map<String, Integer> classMethodVariableCountMap =
+      new HashMap<String, Integer>();
 
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Operation Name");
+    currRow.add("Number of Variables");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+
+    // reset the row
+    currRow = new ArrayList<String>();
+
+    // Iterate over the entire class to operation association map.
+    for (String currClassKey : classKeySet)
+    {
+
+      // Map to hold the list of operations for the current class
+      Map<String, Integer> operationLinesMap = this.classOperationLinesMap
+          .get(currClassKey);
+      // Set of strings to hold all of the keys (operation names) in the map
+      // so that it may be iterated through.
+      Set<String> operationKeySet = operationLinesMap.keySet();
+      
+      Integer totalVarsInClass = 0;
+
+      // Iterate of the entire set of operations.
+      for (String currOperationName : operationKeySet)
+      {
+
+        Integer numVars = (Integer) operationLinesMap.get(currOperationName);
+
+        // reset the row
+        currRow = new ArrayList<String>();
+
+        // add the elements to the current row
+        currRow.add(currClassKey);
+        currRow.add(currOperationName);
+        currRow.add(numVars + "");
+
+        // add the row to the work sheet
+        worksheetReport.add(currRow);
+        
+        totalVarsInClass += numVars;
+
+      }
+      
+      classMethodVariableCountMap.put(currClassKey, totalVarsInClass);
+
+      // reset the current row
+      currRow = new ArrayList<String>();
+
+    }
+
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
 
+    // Iterate of the entire set of operations.
+    for (String currClassKey : classKeySet)
+    {
+
+      // add the class name, a empty cell and the class count to the output
+      currRow.add(currClassKey);
+      currRow.add("");
+      currRow.add(classMethodVariableCountMap.get(currClassKey).toString());
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+
+      // reset the current row
+      currRow = new ArrayList<String>();
+
+    }
+
     return worksheetReport;
-    
-  }  
+
+  } 
 
   
   

@@ -264,26 +264,60 @@ public class LackOfCohesionInMethodsSourceAnalyzer extends SourceAnalyzer
 
 
   /**
-   * For the given source file and its map of found fields to fields' methods, calculate the 
-   * LCOM value by subtracting the number of pairs of methods that do not share any instance variable
-   * by the pairs that do.  The calculation to find pairs that do are done with help of the
-   * 'combination formula' as mentioned in the commented link below.
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
    * 
-   * @param currSourceFile
-   * @param fieldsToMethodsMap
-   * @return
-
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents number of
+   * operations within the class.  
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
-
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classOperationLinesMap.keySet();
 
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("LCOM");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
+    
+    // reset the row
+    currRow = new ArrayList<String>();    
+
+    // Iterate of the entire set of operations.
+    for (String currClassKey : classKeySet)
+    {
+
+      // add the class name and the LCOM value to the output
+      currRow.add(currClassKey);
+      currRow.add(this.classLCOMValMap.get(currClassKey).toString());
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+
+      // reset the current row
+      currRow = new ArrayList<String>();
+
+    }
 
     return worksheetReport;
-    
-  }  
+
+  }
+ 
 
   private Integer getLCOMStat (String currSourceFile, Map<String, List<String>> fieldsToMethodsMap)
   {
