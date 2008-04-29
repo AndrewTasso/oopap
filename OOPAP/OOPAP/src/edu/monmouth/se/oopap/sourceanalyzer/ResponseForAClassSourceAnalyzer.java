@@ -13,10 +13,8 @@ import edu.monmouth.se.oopap.enumerator.LineType;
 
 /**
  * This class is responsible for analyzing the source code of a program and
- * producing a logical line count. A logical line count returns the number of
- * "useful" lines of code of each method and class, as well as a total count. In
- * particular, it does not count comments, blank lines, or logical lines of code
- * that cover multiple lines.
+ * producing the "response for a class" (RFC). RFC is equal to the number of methods in a class plus
+ * the number of methods called in that class, regardless of what the call is to.
  * 
  * @author Kevin Gajdzis (with some source code from LineCountSourceAnalyzer by
  *         Andrew Tasso
@@ -49,15 +47,14 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
   }
 
   /**
-   * analyzes a given source for logical LOC. reads in line types and classifies
-   * them as valid logical LOC as required.
+   * analyzes a given source for RFC. 
    */
   public void analyzeSource(Map<String, List<String>> theSourceMap)
   {
     // reset the previous analysis
     this.resetAnalysis();
 
-    // integer to hold the current physical LOC for the current class
+    // integer to hold the RFC for the current class
     int currClassResponse = 0;
     // Set to hold the list of key values (source file names) for the current
     // map of source files.
@@ -86,11 +83,11 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
       String currLine = "";
       // String to hold the name of the current method being analyzed
       String currOperationName = "";
-      // integer to hold the current physical LOC for the current operation
+      // integer to hold the current number of operation lines
       int currOperationLines = 0;
       // LineType for the current line
       LineType currLineType = LineType.Unknown;
-      // Reset the ClassLOC
+      // Reset the RFC
       currClassResponse = 0;
       // Map to hold the operation to line count association
       Map<String, Integer> operationCountMap = new HashMap<String, Integer>();
@@ -109,8 +106,8 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
 
         // Check the current line type. With this analysis we are concerned with
         // class declarations so the name may be retrieved, method declarations
-        // for the purpose of resetting the LOC count by operation and getting
-        // the name
+        // for the purpose of getting the name
+       
         switch (currLineType)
         {
 
@@ -179,6 +176,8 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
       classOperationLinesMap.put(currSourceFileName, operationCountMap);
       classLinesMap.put(currSourceFileName, currClassResponse);
       }
+      //reiterate through the program and increment RFC for any instances of class methods that
+      //were not capture by isMethodCall (which is external methods)
       for (int i = 0; i < currFileContents.size(); i++)
       {
         currLine = currFileContents.get(i);
@@ -270,13 +269,11 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
     worksheetReport.add(new ArrayList<String>());
 
     // Iterate over the entire set of operations.
-    //Add the class LOC total for each class
     for (String currClassKey : classKeySet)
     {
 
-      // add the class name, a empty cell and the class count to the output
+      // add the class name and the class RFC to the output
       currRow.add(currClassKey);
-      currRow.add("");
       currRow.add(this.classLinesMap.get(currClassKey).toString());
       // add the row to the work sheet
       worksheetReport.add(currRow);
