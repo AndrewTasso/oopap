@@ -176,7 +176,7 @@ public class OOPAPController
    * for each of the source analyzers executed. This function clears it,
    * so only one analysis run is lised in the console at a time.
    * 
-   * @return true if success, false if failed
+   * @return nothing
    */
   public void clearFullConsoleReport()
   {
