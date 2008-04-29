@@ -185,7 +185,7 @@ public class PrivateVarCountSourceAnalyzer extends SourceAnalyzer
   }
 
   /**
-   * Generates the console report - printing the LCOM value per class.
+   * Generates the console report.
    */
   public List<String> generateConsoleReport()
   {
