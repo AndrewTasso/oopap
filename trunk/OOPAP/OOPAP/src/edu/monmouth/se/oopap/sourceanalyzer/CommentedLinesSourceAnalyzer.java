@@ -129,10 +129,6 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
       int currOperationLines = 0;
       // integer to hold the current logical LOC for the current operation
       int currOperationLogicalLines = 0;
-      //check if in an open comment
-      boolean openCommentStatus = false;
-      // integer to hold the current commented lines for the current operation
-      //int currOperationCommentedLines = 0;
       // LineType for the current line
       LineType currLineType = LineType.Unknown;
       // Reset the Class comment line count
