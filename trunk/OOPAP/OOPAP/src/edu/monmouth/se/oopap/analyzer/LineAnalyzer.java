@@ -332,4 +332,57 @@ public class LineAnalyzer
     return false;
   }
 
+  public static int getNumOperators (String theSourceLine)
+  {
+    int   numOps  = 0;
+    String s  = theSourceLine;
+    
+    int numPlus = theSourceLine.length() - s.replaceAll("+", "").length();
+    s = theSourceLine;
+
+    int numMinus = theSourceLine.length() - s.replaceAll ("-", "").length();
+    s = theSourceLine;
+    
+    int numDiv = theSourceLine.length() - s.replaceAll ("/", "").length();
+    s = theSourceLine;
+    
+    int numMod = theSourceLine.length() - s.replaceAll ("%", "").length();
+    s = theSourceLine;
+    
+    int numAnd = theSourceLine.length() - s.replaceAll ("&&", "").length();
+    s = theSourceLine;
+    
+    int numOr = theSourceLine.length() - s.replaceAll ("||", "").length();
+    s = theSourceLine;
+    
+    int numNot = theSourceLine.length() - s.replaceAll ("!", "").length();
+    s = theSourceLine;
+    
+    int numIsEqual = theSourceLine.length() - s.replaceAll ("==", "").length();
+    s = theSourceLine;
+    
+    int numLessThanEqualTo = theSourceLine.length() - s.replaceAll ("<=", "").length();
+    s = theSourceLine;
+
+    int numLessThan = theSourceLine.length() - s.replaceAll ("<", "").length();
+    s = theSourceLine;
+
+    int numGreaterThan = theSourceLine.length() - s.replaceAll (">", "").length();
+    s = theSourceLine;
+
+    int numGreaterThanEqualTo = theSourceLine.length() - s.replaceAll (">=", "").length();
+    s = theSourceLine;
+    
+    int numNotEqualTo = theSourceLine.length() - s.replaceAll ("!=", "").length();
+    s = theSourceLine;
+
+    int numEqualTo = theSourceLine.length() - s.replaceAll ("!=", "").length();
+    s = theSourceLine;
+   
+    numOps  = numAnd + numDiv + numEqualTo + numGreaterThan + numGreaterThanEqualTo + numIsEqual + 
+                numLessThan + numLessThanEqualTo + numMinus + numMod + numNot + numNotEqualTo + numOps + 
+                numOr + numPlus;
+    
+    return (numOps);
+  }
 }
