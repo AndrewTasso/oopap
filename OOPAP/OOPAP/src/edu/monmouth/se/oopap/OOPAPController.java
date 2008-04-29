@@ -60,6 +60,8 @@ public class OOPAPController
     reportList.add(ReportType.PublicVarCountByPC);
     reportList.add(ReportType.MethodVarCountByPC);
     reportList.add(ReportType.CommentLines);
+    reportList.add(ReportType.CommentedLines);
+    
 
   }
 
