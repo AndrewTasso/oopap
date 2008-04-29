@@ -76,6 +76,10 @@ public class SourceAnalyzerFactory
     case CommentedLines:
       
       return new CommentedLinesSourceAnalyzer();
+    
+    case SumOfCommentAndCommented:
+      
+      return new SumCommentLinesSourceAnalyzer();
       
     case ResponseForAClass:
       
