@@ -69,6 +69,10 @@ public class SourceAnalyzerFactory
 
       return new PublicVarCountSourceAnalyzer();      
       
+    case CommentLines:
+      
+      return new CommentLinesSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
