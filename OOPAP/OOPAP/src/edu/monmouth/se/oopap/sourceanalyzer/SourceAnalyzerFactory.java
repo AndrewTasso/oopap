@@ -73,6 +73,10 @@ public class SourceAnalyzerFactory
       
       return new CommentLinesSourceAnalyzer();
       
+    case CommentedLines:
+      
+      return new CommentedLinesSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
