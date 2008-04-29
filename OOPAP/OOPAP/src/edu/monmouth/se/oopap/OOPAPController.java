@@ -169,5 +169,20 @@ public class OOPAPController
     return this.fullConsoleReport;
     
   }
+  
+  /**
+   * Method to clear the full console report. The full console report
+   * contains the entire list of SourceAnalyzer console reports, one
+   * for each of the source analyzers executed. This function clears it,
+   * so only one analysis run is lised in the console at a time.
+   * 
+   * @return true if success, false if failed
+   */
+  public void clearFullConsoleReport()
+  {
+    
+    this.fullConsoleReport = new ArrayList<String>();
+    
+  }
 
 }
