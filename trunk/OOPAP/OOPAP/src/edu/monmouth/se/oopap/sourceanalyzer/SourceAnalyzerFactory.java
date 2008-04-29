@@ -77,6 +77,10 @@ public class SourceAnalyzerFactory
       
       return new CommentedLinesSourceAnalyzer();
       
+    case ResponseForAClass:
+      
+      return new ResponseForAClassSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
