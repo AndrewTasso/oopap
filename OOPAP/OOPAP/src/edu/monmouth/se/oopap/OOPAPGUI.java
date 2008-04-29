@@ -103,8 +103,7 @@ public class OOPAPGUI extends JFrame
 
         try
         {
-
-          
+          controller.clearFullConsoleReport();
           workingPath = textField.getText();
           controller.runAnalysis(workingPath, sourceExtension,
                                  studentNameTextField.getText(),
