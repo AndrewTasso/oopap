@@ -317,6 +317,14 @@ public class LineAnalyzer
     return false;
   }
   
+  public static boolean isMethodCall(String theSourceLine)
+  {
+    if (theSourceLine.matches(".*\\.\\p{Alnum}+\\(.*") && !isVariableDeclaration(theSourceLine))
+    {
+      return true; 
+    }
+    return false;
+  }
   
   public static boolean isReturnStatement(String theSourceLine)
   {
