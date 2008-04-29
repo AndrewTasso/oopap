@@ -53,7 +53,7 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
    */
   public void analyzeSource(Map<String, List<String>> theSourceMap)
   {
-    //reset the previous analysis
+    // reset the previous analysis
     this.resetAnalysis();
 
     // integer to hold the current physical LOC for the current class
@@ -89,6 +89,8 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
       LineType currLineType = LineType.Unknown;
       // Reset the ClassLOC
       currClassLines = 0;
+      // Map to hold the operation to line count association
+      Map<String, Integer> operationCountMap = new HashMap<String, Integer>();
 
       // iterate over the entire content of the file, analyzing each line
       // and incrementing the proper counter when appropriate.
@@ -141,7 +143,7 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
           if (!braceStack.empty())
           {
 
-            //pop the previous brace from the stack
+            // pop the previous brace from the stack
             braceStack.pop();
 
             // check to see if the stack is now empty. If it is the end of
@@ -159,6 +161,7 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
           break;
 
         }
+
       }
 
       // add the map of operation to line count association to the class to
@@ -198,12 +201,13 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
       //Iterate of the entire set of operations.
       for (String currOperationName : operationKeySet)
       {
-    	//increment the number of operations for this class
-    	numOperations++;     
+      System.out.println(currOperationName);
+      //increment the number of operations for this class
+      numOperations++;     
       }
       
       //add the class name to the output
-      reportContents.add("    " + currClassKey + ": " + numOperations);      
+      reportContents.add("    " + currClassKey + ": " + operationKeySet.size());      
 
     } 
     
