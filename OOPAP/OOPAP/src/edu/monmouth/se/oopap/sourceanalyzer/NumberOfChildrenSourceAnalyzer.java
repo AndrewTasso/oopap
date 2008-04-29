@@ -160,7 +160,7 @@ public class NumberOfChildrenSourceAnalyzer extends SourceAnalyzer
   {
     List<String> consoleReport = new ArrayList<String>();
     
-    consoleReport.add("Number of Children§:");
+    consoleReport.add("Number of Children:");
     consoleReport.add("");
     
     //Set of strings to hold all of the keys (class names) in the analyzer so that
