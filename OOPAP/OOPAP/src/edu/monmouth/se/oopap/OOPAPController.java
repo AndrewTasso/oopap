@@ -61,6 +61,7 @@ public class OOPAPController
     reportList.add(ReportType.MethodVarCountByPC);
     reportList.add(ReportType.CommentLines);
     reportList.add(ReportType.CommentedLines);
+    reportList.add(ReportType.SumOfCommentAndCommented);
     reportList.add(ReportType.ResponseForAClass);
     
 
