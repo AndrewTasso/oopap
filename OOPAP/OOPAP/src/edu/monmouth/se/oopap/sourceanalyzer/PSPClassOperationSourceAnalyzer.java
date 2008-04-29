@@ -201,7 +201,6 @@ public class PSPClassOperationSourceAnalyzer extends SourceAnalyzer
       //Iterate of the entire set of operations.
       for (String currOperationName : operationKeySet)
       {
-      System.out.println(currOperationName);
       //increment the number of operations for this class
       numOperations++;     
       }
