@@ -55,10 +55,11 @@ public class FileUtil
       {
 
         // obtain the string value of the absolute path to the file
-        String tempName = currFile.toString();
+        String tempName = currFile.getName();
 
         // ensure that the file has an extension of .java
-        if (tempName.contains(theSourceExtension))
+        if (tempName.endsWith(theSourceExtension) &&
+        	!tempName.startsWith("."))
         {
 
           // add it if it is a source file
