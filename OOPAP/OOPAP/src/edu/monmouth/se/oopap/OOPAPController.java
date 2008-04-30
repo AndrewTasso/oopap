@@ -59,10 +59,12 @@ public class OOPAPController
     reportList.add(ReportType.PrivateVarCountByPC);
     reportList.add(ReportType.PublicVarCountByPC);
     reportList.add(ReportType.MethodVarCountByPC);
+    //4th release reports
     reportList.add(ReportType.CommentLines);
     reportList.add(ReportType.CommentedLines);
     reportList.add(ReportType.SumOfCommentAndCommented);
     reportList.add(ReportType.ResponseForAClass);
+    reportList.add(ReportType.CodingViolation);
     
 
   }
@@ -84,7 +86,8 @@ public class OOPAPController
    *           the application.
    */
   public void runAnalysis(String theSourcePath, String theSourceExtension,
-                          String theStudentName, String theProjectName)
+          String theOutputPath,
+          String theStudentName, String theProjectName)
       throws IOException, UnhandledReportTypeException
   {
 
@@ -97,7 +100,7 @@ public class OOPAPController
     // SourceAnalyer to be used to analyze the source
     SourceAnalyzer sourceAnalyzer;
     //File to point to the directory the csv files are going to be output to
-    File outputPath = new File(System.getProperty("user.dir"));
+    File newOutputPath = new File(theOutputPath);
 
     // Get the list of files from the path provided by the application
     sourceFileList = FileUtil.getSourceFileList(theSourcePath,
@@ -105,8 +108,8 @@ public class OOPAPController
     
     //create the directory that is going to contain the csv reports. This will
     //be in the format of .../<Project Name>/<Student Name>
-    outputPath = FileUtil.mkDir(outputPath, theProjectName);
-    outputPath = FileUtil.mkDir(outputPath, theStudentName);
+    newOutputPath = FileUtil.mkDir(newOutputPath, theProjectName);
+    newOutputPath = FileUtil.mkDir(newOutputPath, theStudentName);
     
     //add the student and project name to the full console report
     this.fullConsoleReport.add("Student Name: " + theStudentName);
@@ -130,7 +133,7 @@ public class OOPAPController
     for (ReportType currReport : reportList)
     {
 
-      File outputFile = new File(outputPath, theStudentName + "_" + theProjectName + "_" + currReport + ".csv");
+      File outputFile = new File(newOutputPath, theStudentName + "_" + theProjectName + "_" + currReport + ".csv");
       
       // get the concrete implementation of the
       sourceAnalyzer = SourceAnalyzerFactory
