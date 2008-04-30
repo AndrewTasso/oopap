@@ -242,7 +242,7 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
     Set<String> classKeySet = this.classOperationLinesMap.keySet();
 
     // add the title to the report
-    reportContents.add("Coding Violation Line Count:\n");
+    reportContents.add("Coding Violation Count:\n");
     
     // Iterate over the entire class to operation association map.
     for (String currClassKey : classKeySet)
@@ -270,9 +270,6 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
       }
 
     }
-
-    // Add the program total to the output
-    reportContents.add("Program Total: " + programLines + " PSP code violations");
 
     return reportContents;
 
