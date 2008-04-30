@@ -177,7 +177,7 @@ public class OOPAPController
    * Method to clear the full console report. The full console report
    * contains the entire list of SourceAnalyzer console reports, one
    * for each of the source analyzers executed. This function clears it,
-   * so only one analysis run is lised in the console at a time.
+   * so only one analysis run is listed in the console at a time.
    * 
    * @return nothing
    */
