@@ -15,7 +15,7 @@ import edu.monmouth.se.oopap.enumerator.LineType;
  * A logical line count returns the number of "useful" lines of code of each method and class, as well as
  * a total count. In particular, it does not count comments, blank lines, or logical lines of code that cover 
  * multiple lines.
- * @author Kevin Gajdzis (with some source code from LineCountSourceAnalyzer by Andrew Tasso
+ * @author Himali (with some source code from LineCountSourceAnalyzer by Andrew Tasso
  * @version %I% %G%
  */
 public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
