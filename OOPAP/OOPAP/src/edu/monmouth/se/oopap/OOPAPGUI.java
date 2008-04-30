@@ -59,7 +59,7 @@ public class OOPAPGUI extends JFrame
     JLabel projectNameLabel = new JLabel("Project Name:");
 
     getContentPane().setLayout(null);
-    setBounds(100, 100, 510, 180);
+    setBounds(100, 100, 525, 185);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     super.setTitle("OOPAP");
 
