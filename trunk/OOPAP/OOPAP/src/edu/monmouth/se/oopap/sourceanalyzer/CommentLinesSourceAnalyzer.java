@@ -370,7 +370,7 @@ public class CommentLinesSourceAnalyzer extends SourceAnalyzer
     //store the percentage of comment lines to comment lines and logical lines for the program
     double programPercentage = (double)commentLines/(commentLines+programLogicalLOC)*100;
     // Add the program total to the output
-    reportContents.add("Program Total: " + commentLines + " ("+ df.format(programPercentage) +"%)");
+    reportContents.add("Program Total: " + commentLines + " comment lines ("+ df.format(programPercentage) +"%)");
 
     return reportContents;
 

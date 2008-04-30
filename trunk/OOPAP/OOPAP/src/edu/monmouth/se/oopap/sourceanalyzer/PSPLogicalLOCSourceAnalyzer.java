@@ -262,7 +262,7 @@ public class PSPLogicalLOCSourceAnalyzer extends SourceAnalyzer
     }
 
     // Add the program total to the output
-    reportContents.add("Program Total: " + programLogicalLOC);
+    reportContents.add("Program Total: " + programLogicalLOC + " LOC");
 
     return reportContents;
 
