@@ -256,7 +256,7 @@ public class LineCountSourceAnalyzer extends SourceAnalyzer
     }
 
     // Add the program total to the output
-    reportContents.add("Program Total: " + programLines);
+    reportContents.add("Program Total: " + programLines + " Lines");
 
     return reportContents;
 

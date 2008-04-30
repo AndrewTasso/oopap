@@ -212,7 +212,7 @@ public class PrivateVarCountSourceAnalyzer extends SourceAnalyzer
 
     consoleReport.add("");
       // Add the class total to the output
-    consoleReport.add("Program Total: " +totalVars);
+    consoleReport.add("Program Total: " +totalVars + " private variables");
     
     return consoleReport;
     

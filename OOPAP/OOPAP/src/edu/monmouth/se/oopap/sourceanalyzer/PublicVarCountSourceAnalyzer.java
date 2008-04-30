@@ -212,7 +212,7 @@ public class PublicVarCountSourceAnalyzer extends SourceAnalyzer
     
     consoleReport.add("");
     // Add the class total to the output
-    consoleReport.add("Program Total: " +totalVars);
+    consoleReport.add("Program Total: " +totalVars + " public variables");
     
     return consoleReport;
     

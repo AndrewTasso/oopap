@@ -235,7 +235,7 @@ public class PSPPhysicalLOCSourceAnalyzer extends SourceAnalyzer
     }
     
     //Add the program total to the output
-    reportContents.add("Program Total: " + numProgramPhysicalLOC);    
+    reportContents.add("Program Total: " + numProgramPhysicalLOC + " LOC");    
 
     return reportContents;
     

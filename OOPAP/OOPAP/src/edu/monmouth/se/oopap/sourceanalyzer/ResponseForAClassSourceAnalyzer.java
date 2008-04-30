@@ -184,7 +184,7 @@ public class ResponseForAClassSourceAnalyzer extends SourceAnalyzer
         currLineType = LineAnalyzer.getLineType(currLine);
         for(int j=0; j < operationNames.size(); j++)
         {
-          if (currLine.matches(".*"+operationNames.get(j)+"\\s*\\(.*") && !currLine.contains("public")
+          if (currLine.matches(".*" + operationNames.get(j) + "\\s*\\(.*") && !currLine.contains("public")
               && !currLine.contains("private") && !currLine.contains("protected"))
           {
             currClassResponse++;

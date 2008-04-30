@@ -85,6 +85,10 @@ public class SourceAnalyzerFactory
       
       return new ResponseForAClassSourceAnalyzer();
       
+    case CodingViolation:
+    	
+      return new CodingViolationSourceAnalyzer();
+      
     default:
 
       throw new UnhandledReportTypeException("Unhandled Analyzer Encountered: "
