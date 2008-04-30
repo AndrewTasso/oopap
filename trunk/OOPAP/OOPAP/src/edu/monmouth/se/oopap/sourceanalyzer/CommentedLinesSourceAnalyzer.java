@@ -15,7 +15,7 @@ import edu.monmouth.se.oopap.analyzer.LineAnalyzer;
  * This class is responsible for counting the total number of commented lines of a 
  * program/class. Comment counts are performed in total for the program, classes, 
  * and operations. Commented lines are lines with code and a comment.
- * Percentages are also calculated (comments/comments+LogicalLOC).
+ * Percentages are also calculated (comments/LogicalLOC).
  * The line count for an operation begins at the operation declaration
  * and ends at the final '}' ending the operation. The comment line count for the class
  * includes the operation comment line counts. Operation header comments are not
@@ -327,8 +327,8 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
             + df.format(((double)operationCommentCount/operationCountTotal)*100) + "%)");
 
       }
-      //store total number of comment lines and Logical LOC for each class
-      double classTotal = classCommentLinesMap.get(currClassKey) + classLogicalLinesMap.get(currClassKey);
+      //store total number of Logical LOC for each class
+      double classTotal = classLogicalLinesMap.get(currClassKey);
 
       // Add the class total to the output
       reportContents.add("    Class Total: " + classCommentLinesMap.get(currClassKey) 
@@ -336,8 +336,8 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
 
     }
 
-    //store the percentage of comment lines to comment lines and logical lines for the program
-    double programPercentage = (double)commentLines/(commentLines+programLogicalLOC)*100;
+    //store the percentage of comment lines to logical lines for the program
+    double programPercentage = (double)commentLines/programLogicalLOC*100;
     // Add the program total to the output
     reportContents.add("Program Total: " + commentLines + " commented lines ("+ df.format(programPercentage) +"%)");
 
@@ -357,9 +357,9 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
    * for each class, operation and a final line count for the current program.
    * The fourth column will contain the logical line counts
    * for each class, operation and a final line count for the current program.
-   * The fifth column will contain the percentage of comments to comments+Logical
-   * for commented lines for each class, operation and a final line count for the 
-   * current program.
+   * The fifth column will contain the ratio of commented lines to Logical LOC for 
+   * each class (expressed as a percentage), operation and a final line count
+   * for the current program.
    * 
    * @return the 2 dimensional array of strings ready to be written to the
    *         workbook.
@@ -382,7 +382,7 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
     currRow.add("Operation Name");
     currRow.add("Commented Line Count");
     currRow.add("Logical Line Count");
-    currRow.add("Percentage of Commented Lines");
+    currRow.add("% Commented to Logical LOC");
     // add the row to the work sheet
     worksheetReport.add(currRow);
 
@@ -416,8 +416,8 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
         currRow.add(operationLinesMap.get(currOperationName).toString());
         currRow.add(operationLinesMapLogical.get(currOperationName).toString());
 
-        //calculate the percentage of the operation that the comments take up
-        Double rowPercentage = (double)operationLinesMap.get(currOperationName)/(operationLinesMapLogical.get(currOperationName)+operationLinesMap.get(currOperationName));
+        //calculate the percentage of commented lines to Logical LOC in the operation
+        Double rowPercentage = (double)operationLinesMap.get(currOperationName)/operationLinesMapLogical.get(currOperationName);
         rowPercentage = rowPercentage*100;
         //add percentage to the current row
         currRow.add(df.format(rowPercentage));
@@ -444,8 +444,8 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
       currRow.add(this.classCommentLinesMap.get(currClassKey).toString());
       currRow.add(this.classLogicalLinesMap.get(currClassKey).toString());
       
-      //calculate the percentage of the class that the comments take up
-      Double rowPercentage = (double)this.classCommentLinesMap.get(currClassKey)/(this.classCommentLinesMap.get(currClassKey)+this.classLogicalLinesMap.get(currClassKey));
+      //calculate the percentage of commented lines to Logical LOC in the class
+      Double rowPercentage = (double)this.classCommentLinesMap.get(currClassKey)/this.classLogicalLinesMap.get(currClassKey);
       rowPercentage = rowPercentage*100;
       //add percentage to the current row
       currRow.add(df.format(rowPercentage));
@@ -468,7 +468,7 @@ public class CommentedLinesSourceAnalyzer extends SourceAnalyzer
     currRow.add(this.commentLines + "");
     currRow.add(this.programLogicalLOC + "");
     
-    double programPercentage = (double)this.commentLines/(this.commentLines+this.programLogicalLOC)*100;
+    double programPercentage = (double)this.commentLines/this.programLogicalLOC*100;
     currRow.add(df.format(programPercentage));
     worksheetReport.add(currRow);
 
