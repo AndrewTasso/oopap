@@ -65,6 +65,8 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
     // Stack to store braces
     Stack<LineType> braceStack = new Stack<LineType>();
 
+    //integer to hold coding violation
+    //int codingViolation =0;
     // Iterate through the entire list of files in the program
     // The algorithm for counting is as follows. For every line in the file
     // both the class and program count are incremented. Every time a new
@@ -84,8 +86,8 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
       String currLine = "";
       // String to hold the name of the current method being analyzed
       String currOperationName = "";
-      // integer to hold the current physical LOC for the current operation
-      int currOperationLines = 0;
+      // integer to hold the current coding violation for the current operation
+      int codingViolation = 0;
       // LineType for the current line
       LineType currLineType = LineType.Unknown;
       // Reset the ClassLOC
@@ -117,15 +119,14 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
           // get the name of the method being declared
           currOperationName = LineAnalyzer.getOperationName(currLine);
 
-          // reset the LOC for the operation
-          currOperationLines = 0;
+          // reset the coding violation for the operation
+          codingViolation = 0;
           // this check to see if there is { on the same line as declaration. 
           //if there is bracket on same line it increment the count.
-          if(currLine.contains("{")|| currLine.contains("}"))
-          {
-            currOperationLines++;
-            System.out.println(currOperationLines);
-          }
+         // if(currLine.contains("{")|| currLine.contains("}"))
+          //{
+            //currOperationLines++;
+          //}
 
           break;
 
@@ -160,7 +161,7 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
             if (braceStack.empty())
             {
 
-              operationCountMap.put(currOperationName, currOperationLines);
+              operationCountMap.put(currOperationName, codingViolation);
 
             }
 
@@ -174,57 +175,55 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
         switch (currLineType)
         {
 
-        // in the case of a comment, open comment, close comment, blank line,
-        // beginning of multi-line logical
-        // or unknown line type, do not increment logical loc count for
-        // operation or method.
-        case Comment:
-        case OpenComment:
-        case CloseComment:
-        case Blank:
-        case Unknown:
+        // in the case of a comment, opening brace, closing brace, 
+        // beginning of multi-line logical.
         case OpeningBrace:
-        case ClosingBrace:
-       
           break;
-
-        // in the case of Class and method declarations, as well as open/close
-        // braces and
-        // single lines of logical code, increment the class, method, and
-        // program line count
-        case ClassDeclaration:
+        case ClosingBrace:
+          break;
+        case Comment:
+          break;
+        // if there is multiline logical that has opening or closing brace
+        // variable codingViolation will be incremented.
         case MultiLineLogical:
-        case MethodDeclaration:
-       // this check to see if there is { on the same line as declaration. 
-       //if there is bracket on same line it increment the count.
-          
+          if(currLine.contains("{")|| currLine.contains("}"))
+          {
+            codingViolation++;
+          }
+          break;
+          // if there is SingleLine logical that has opening or closing brace
+          // variable codingViolation will be incremented.
+         
         case SingleLineLogical:
           if(currLine.contains("{")|| currLine.contains("}"))
           {
-            currOperationLines++;
+            codingViolation++;
           }
-
-          this.programLines++;
-          currClassLines++;
-         // currOperationLines++;
+          // currOperationLines++;
+ 
           break;
 
+         
         // in the case of package declarations and import statements, increment
         // program count
         // only because these statements occur at the header of a file and not
         // inside a class
-        case PackageDeclaration:
-        case ImportStatement:
-          this.programLines++;
+       case PackageDeclaration:
+       case ImportStatement:
+         this.programLines++;
+         currClassLines++;
+         break;
+     
         }
 
-      }
+       }
 
       // add the map of operation to line count association to the class to
       // line count association map
       classOperationLinesMap.put(currSourceFileName, operationCountMap);
       classLinesMap.put(currSourceFileName, currClassLines);
     }
+   
   }
 
   /**
@@ -242,7 +241,7 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
     Set<String> classKeySet = this.classOperationLinesMap.keySet();
 
     // add the title to the report
-    reportContents.add("Coding Violation Count:\n");
+    reportContents.add("Coding Violation Line Count:\n");
     
     // Iterate over the entire class to operation association map.
     for (String currClassKey : classKeySet)
@@ -256,7 +255,7 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
       Set<String> operationKeySet = operationLinesMap.keySet();
 
       // add the class name to the output
-      reportContents.add("    " + currClassKey);
+      reportContents.add("  " + currClassKey);
 
       // Iterate of the entire set of operations.
       for (String currOperationName : operationKeySet)
@@ -264,30 +263,123 @@ public class CodingViolationSourceAnalyzer extends SourceAnalyzer
 
         // Add the operation name followed by the number of lines in that
         // operation. Get the line count from the operations lines map.
-        reportContents.add("        " + currOperationName + ": "
+        reportContents.add("    " + currOperationName + ": "
             + operationLinesMap.get(currOperationName));
 
       }
 
+      // Add the class total to the output
+      reportContents.add("  Class Total: " + classLinesMap.get(currClassKey)
+          + "\n");
+
     }
+
+    // Add the program total to the output
+    reportContents.add("Program Total: " + programLines);
 
     return reportContents;
 
   }
-
   /**
+   * Method responsible for generating a 2 dimensional array of string ready to
+   * be written to a work sheet. The contents of the 2 dimensional array 
+   * will directly reflect the contents of the workbook. Each
+   * nested array represents a line within the work sheet.
    * 
-   * @return
+   * The first column in the output represents the name of the classes being
+   * analyzed. The second column in the output represents the name of the
+   * operations within the class. The third column will contain the line counts
+   * for each class, operation and a final line count for the current program.
+   * 
+   * 
+   * @return the 2 dimensional array of strings ready to be written to the
+   *         workbook.
    */
   public List<List<String>> generateWorksheetReport()
   {
 
+    // the 2 dimensional array containing the output of the method
     List<List<String>> worksheetReport = new ArrayList<List<String>>();
+    // Set of strings to hold all of the keys (class names) in the map so that
+    // it may be iterated through.
+    Set<String> classKeySet = this.classOperationLinesMap.keySet();
+    
+    // list containing the contents of the current row
+    List<String> currRow = new ArrayList<String>();
+    
+    // add the column headings to the topmost row
+    currRow.add("Class Name");
+    currRow.add("Operation Name");
+    currRow.add("Coding Violation LOC");
+    // add the row to the work sheet
+    worksheetReport.add(currRow);
+    
+    // reset the row
+    currRow = new ArrayList<String>();
+    
+    // Iterate over the entire class to operation association map.
+    for (String currClassKey : classKeySet)
+    {
 
+      // Map to hold the list of operations and their LOC for the current class
+      Map<String, Integer> operationLinesMap = this.classOperationLinesMap
+          .get(currClassKey);
+      // Set of strings to hold all of the keys (operation names) in the map
+      // so that it may be iterated through.
+      Set<String> operationKeySet = operationLinesMap.keySet();
+
+      // Iterate over the entire set of operations.
+      for (String currOperationName : operationKeySet)
+      {
+
+        // reset the row
+        currRow = new ArrayList<String>();
+
+        // add the elements to the current row
+        currRow.add(currClassKey);
+        currRow.add(currOperationName);
+        currRow.add(operationLinesMap.get(currOperationName).toString());
+
+        // add the row to the work sheet
+        worksheetReport.add(currRow);
+
+      }
+  
+      // reset the current row
+      currRow = new ArrayList<String>();      
+
+    }
+    
+    // add a blank row
     worksheetReport.add(new ArrayList<String>());
+
+    // Iterate over the entire set of operations.
+    //Add the class LOC total for each class
+    for (String currClassKey : classKeySet)
+    {
+
+      // add the class name, a empty cell and the class count to the output
+      currRow.add(currClassKey);
+      currRow.add("");
+      currRow.add(this.classLinesMap.get(currClassKey).toString());
+      // add the row to the work sheet
+      worksheetReport.add(currRow);
+
+      // reset the current row
+      currRow = new ArrayList<String>();
+
+    }    
+    
+    // add a blank row
+    worksheetReport.add(new ArrayList<String>());
+
+    // add the program total to the work sheet
+    currRow.add("Program Total");
+    currRow.add("");
+    currRow.add(this.programLines + "");
+    worksheetReport.add(currRow);
 
     return worksheetReport;
 
   }
-
 }
